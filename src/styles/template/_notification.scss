@@ -1,0 +1,119 @@
+.notification-content {
+    // background-color: red;
+
+    .notification-container {
+        display: flex;
+        margin-left: 25px;
+        height: calc(100vh - 71px);
+    }
+}
+
+.notification-main {
+    // width: 80vw;
+    flex: 1;
+
+    .media-contact-name {
+        display: flex;
+        flex-direction: column;
+        @include media-breakpoint-up(sm) {
+            flex-direction: row;
+        }
+        span:first-child {
+            font-weight: normal !important;
+        }
+    }
+
+    .media-body {
+        .media-contact-name {
+            padding-top: 5px;
+        }
+
+        .notif-action {
+            padding-top: 2px;
+            display: none;
+            @include media-breakpoint-up(sm) {
+                display: block;
+            }
+            a {
+                color: $az-color-primary !important;
+                // display: flex;
+                justify-content: center;
+                // flex-direction: column;
+                align-items: center;
+                font-size: 14px;
+
+                svg {
+                    padding-right: 6px;
+                    font-size: 21px;
+                }
+            }
+        }
+
+        a:first-child {
+            padding-right: 20px;
+        }
+    }
+}
+
+.notification-list {
+    @include media-breakpoint-up(lg) {
+        height: calc(100vh - 71px);
+        position: relative;
+    }
+
+    .media {
+        padding: 12px 0;
+        border: 1px solid transparent;
+        display: flex;
+        align-items: center;
+
+        @include media-breakpoint-up(lg) {
+            padding: 12px 15px;
+        }
+
+        .notif-user::after {
+            content: '';
+            display: none;
+        }
+
+        @include hover-focus() {
+            cursor: pointer;
+            background-color: #fcfcfc;
+            border-top-color: $gray-200;
+            border-bottom-color: $gray-200;
+            z-index: 1;
+
+            &:first-child {
+                border-top-color: transparent;
+            }
+        }
+    }
+
+    .media-body {
+        margin-left: 20px;
+    }
+
+    .media-contact-name {
+        display: flex;
+        // align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2px;
+
+        span:first-child {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: $gray-900;
+        }
+
+        span:last-child {
+            display: block;
+            font-size: 11px;
+            color: $gray-500;
+            margin-right: auto;
+            @include media-breakpoint-up(sm) {
+                margin: 0;
+            }
+        }
+    }
+}

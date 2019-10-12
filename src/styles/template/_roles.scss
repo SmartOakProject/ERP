@@ -1,0 +1,70 @@
+.roles-body {
+    display: flex;
+    padding: 0;
+    width: 100vw;
+
+    @include media-breakpoint-up(lg) {
+        padding: 10px 0 0 20px;
+        width: 50vw;
+    }
+    .list-group {
+        width: 180px;
+        margin-top: 20px;
+        margin: 30px auto;
+        .list-group-item {
+            border: 1px solid $gray-400;
+            cursor: pointer;
+            margin: 5px 0;
+            &:hover {
+                background-color: $gray-100;
+            }
+        }
+    }
+}
+.show-edit {
+    .edit-roles {
+        display: block;
+    }
+    .add-role {
+        display: none;
+    }
+}
+
+.arrow-roles {
+    font-size: 40px;
+    @include media-breakpoint-up(md) {
+        display: none;
+    }
+}
+
+.add-role {
+    height: calc(100vh - 66px);
+    width: 100vw;
+    padding-top: 20px;
+    @include media-breakpoint-up(md) {
+        width: 38vw;
+        border-right: 1px solid $gray-500;
+    }
+
+    li {
+        border: none;
+    }
+}
+.role-heading {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.edit-roles {
+    display: none;
+
+    @include media-breakpoint-up(md) {
+        width: 20vw;
+        display: block;
+    }
+
+    input[type='color'] {
+        width: 5vw;
+    }
+}

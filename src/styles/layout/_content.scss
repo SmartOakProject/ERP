@@ -1,0 +1,91 @@
+/* ###### 6.1 Content  ###### */
+
+.az-content-left-show {
+    .az-content-left {
+        @include media-breakpoint-down(lg) {
+            // transform: translateX(-70vw);
+            width: 70vw;
+            height: 100%;
+            display: block;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            background-color: #fff;
+            z-index: 800;
+            border-right: 1px solid $gray-400;
+            box-shadow: 0 0 3px rgba($gray-900, 0.1);
+            overflow-y: auto;
+        }
+    }
+}
+
+.content-padding {
+    padding: 0;
+
+    @include media-breakpoint-up(lg) {
+        padding: 20px 0 0 20px;
+    }
+}
+.az-content-left {
+    width: 100%;
+    position: relative;
+    padding: 0 20px 20px;
+    flex-shrink: 0;
+    display: none;
+    @include media-breakpoint-up(sm) {
+        width: 280px;
+    }
+
+    @include media-breakpoint-up(lg) {
+        display: block;
+        padding: 0;
+    }
+}
+
+.az-content-body {
+    flex: 1;
+    background-color: #fff;
+    // border-top: 1px solid #ced4da;
+    display: flex;
+    height: 91vh;
+}
+
+.az-content-title {
+    color: $gray-900;
+    font-weight: 700;
+    font-size: 24px;
+    text-indent: -1px;
+    line-height: 1;
+    position: relative;
+    margin-bottom: 20px;
+
+    @include media-breakpoint-up(lg) {
+        margin-bottom: 40px;
+    }
+}
+
+.az-content-label {
+    color: $gray-900;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.az-content-label-sm {
+    font-size: 10px;
+    font-weight: 500;
+    font-family: $font-family-roboto;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $gray-600;
+}
+
+.az-content-text {
+    font-size: 12px;
+    line-height: 1.4;
+    display: block;
+    color: $gray-600;
+}
