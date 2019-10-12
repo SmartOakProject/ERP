@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/ERP-Frontend/static/css/main.3fb1a876.chunk.css",
+    "main.js": "/ERP-Frontend/static/js/main.b08c2dc4.chunk.js",
+    "main.js.map": "/ERP-Frontend/static/js/main.b08c2dc4.chunk.js.map",
+    "runtime~main.js": "/ERP-Frontend/static/js/runtime~main.322e47e3.js",
+    "runtime~main.js.map": "/ERP-Frontend/static/js/runtime~main.322e47e3.js.map",
+    "static/css/2.e677a39d.chunk.css": "/ERP-Frontend/static/css/2.e677a39d.chunk.css",
+    "static/js/2.7554ddc3.chunk.js": "/ERP-Frontend/static/js/2.7554ddc3.chunk.js",
+    "static/js/2.7554ddc3.chunk.js.map": "/ERP-Frontend/static/js/2.7554ddc3.chunk.js.map",
+    "index.html": "/ERP-Frontend/index.html",
+    "precache-manifest.d3c4ff804a8e7750cd08db85e8c49251.js": "/ERP-Frontend/precache-manifest.d3c4ff804a8e7750cd08db85e8c49251.js",
+    "service-worker.js": "/ERP-Frontend/service-worker.js",
+    "static/css/2.e677a39d.chunk.css.map": "/ERP-Frontend/static/css/2.e677a39d.chunk.css.map",
+    "static/css/main.3fb1a876.chunk.css.map": "/ERP-Frontend/static/css/main.3fb1a876.chunk.css.map",
+    "static/media/neur.jpg": "/ERP-Frontend/static/media/neur.a3505ec7.jpg",
+    "static/media/slick-theme.css": "/ERP-Frontend/static/media/slick.f97e3bbf.svg",
+    "static/media/user-group.png": "/ERP-Frontend/static/media/user-group.70cede06.png"
+  }
+}
