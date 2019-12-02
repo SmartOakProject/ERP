@@ -7551,19 +7551,50 @@ a.text-dark:hover, a.text-dark:focus {
   width: 45vw; }
   .modal-content textarea {
     width: 100%;
-    padding: 10px; }
+    font-size: 16px;
+    line-height: 1.5;
+    outline: none;
+    border: none;
+    padding: 16px 24px; }
   .modal-content .close {
     font-size: 28px;
     padding: 0;
     margin: 0;
     line-height: 0.5; }
 
+.modal-footer {
+  display: flex;
+  justify-content: space-between; }
+  .modal-footer .modal-actions svg {
+    font-size: 30px;
+    margin: 0 10px;
+    cursor: pointer; }
+  .modal-footer .modal-send {
+    background-color: #1d659f;
+    border-radius: 3px; }
+
 .modal-header {
+  position: relative;
   align-items: center;
-  background-color: #3251cd; }
-  .modal-header h6 {
-    color: #fff; }
+  background-color: #206aa6;
+  padding: 0;
+  height: 48px;
+  padding: 0 24px;
+  margin-bottom: 16px; }
+  .modal-header .modal-avatar {
+    height: 48px;
+    width: 100%;
+    display: flex;
+    justify-content: center; }
+    .modal-header .modal-avatar .az-img-user-post {
+      margin: 24px auto 12px;
+      position: absolute;
+      width: 48px;
+      height: 48px; }
   .modal-header span {
+    display: block;
+    text-align: center;
+    margin-left: auto;
     color: #fff; }
   .modal-header .modal-title {
     margin-bottom: 0; }

@@ -12,9 +12,14 @@
     border-radius: 0;
     border-width: 0;
     width: 45vw;
+
     textarea {
         width: 100%;
-        padding: 10px;
+        font-size: 16px;
+        line-height: 1.5;
+        outline: none;
+        border: none;
+        padding: 16px 24px;
     }
     .close {
         font-size: 28px;
@@ -23,14 +28,48 @@
         line-height: 0.5;
     }
 }
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    .modal-actions {
+        svg {
+            font-size: 30px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+    }
+    .modal-send {
+        background-color: #1d659f;
+        border-radius: 3px;
+    }
+}
 
 .modal-header {
+    position: relative;
     align-items: center;
-    background-color: #3251cd;
-    h6 {
-        color: #fff;
+
+    background-color: #206aa6;
+    padding: 0;
+    height: 48px;
+    padding: 0 24px;
+    margin-bottom: 16px;
+    .modal-avatar {
+        height: 48px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        .az-img-user-post {
+            margin: 24px auto 12px;
+            position: absolute;
+
+            width: 48px;
+            height: 48px;
+        }
     }
     span {
+        display: block;
+        text-align: center;
+        margin-left: auto;
         color: #fff;
     }
 
