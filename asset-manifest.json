@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ERP-Frontend/static/css/main.4a48736f.chunk.css",
+    "main.css": "/ERP-Frontend/static/css/main.7a546e68.chunk.css",
     "main.js": "/ERP-Frontend/static/js/main.95f93aae.chunk.js",
     "main.js.map": "/ERP-Frontend/static/js/main.95f93aae.chunk.js.map",
     "runtime~main.js": "/ERP-Frontend/static/js/runtime~main.322e47e3.js",
@@ -9,10 +9,10 @@
     "static/js/2.d93a9d69.chunk.js": "/ERP-Frontend/static/js/2.d93a9d69.chunk.js",
     "static/js/2.d93a9d69.chunk.js.map": "/ERP-Frontend/static/js/2.d93a9d69.chunk.js.map",
     "index.html": "/ERP-Frontend/index.html",
-    "precache-manifest.9b22afddee70f0119d2734be5a049388.js": "/ERP-Frontend/precache-manifest.9b22afddee70f0119d2734be5a049388.js",
+    "precache-manifest.3582cdb0c8ebe3f589446fcb0203eea7.js": "/ERP-Frontend/precache-manifest.3582cdb0c8ebe3f589446fcb0203eea7.js",
     "service-worker.js": "/ERP-Frontend/service-worker.js",
     "static/css/2.d77089f1.chunk.css.map": "/ERP-Frontend/static/css/2.d77089f1.chunk.css.map",
-    "static/css/main.4a48736f.chunk.css.map": "/ERP-Frontend/static/css/main.4a48736f.chunk.css.map",
+    "static/css/main.7a546e68.chunk.css.map": "/ERP-Frontend/static/css/main.7a546e68.chunk.css.map",
     "static/media/neur.jpg": "/ERP-Frontend/static/media/neur.a3505ec7.jpg",
     "static/media/slick-theme.css": "/ERP-Frontend/static/media/slick.f97e3bbf.svg",
     "static/media/user-group.png": "/ERP-Frontend/static/media/user-group.70cede06.png"
