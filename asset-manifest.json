@@ -1,20 +1,19 @@
 {
   "files": {
-    "main.css": "/ERP-Frontend/static/css/main.7a546e68.chunk.css",
-    "main.js": "/ERP-Frontend/static/js/main.9539a826.chunk.js",
-    "main.js.map": "/ERP-Frontend/static/js/main.9539a826.chunk.js.map",
-    "runtime~main.js": "/ERP-Frontend/static/js/runtime~main.322e47e3.js",
-    "runtime~main.js.map": "/ERP-Frontend/static/js/runtime~main.322e47e3.js.map",
-    "static/css/2.d77089f1.chunk.css": "/ERP-Frontend/static/css/2.d77089f1.chunk.css",
-    "static/js/2.d93a9d69.chunk.js": "/ERP-Frontend/static/js/2.d93a9d69.chunk.js",
-    "static/js/2.d93a9d69.chunk.js.map": "/ERP-Frontend/static/js/2.d93a9d69.chunk.js.map",
-    "index.html": "/ERP-Frontend/index.html",
-    "precache-manifest.f0500cc13ee7c2f71c9f744e789b124e.js": "/ERP-Frontend/precache-manifest.f0500cc13ee7c2f71c9f744e789b124e.js",
-    "service-worker.js": "/ERP-Frontend/service-worker.js",
-    "static/css/2.d77089f1.chunk.css.map": "/ERP-Frontend/static/css/2.d77089f1.chunk.css.map",
-    "static/css/main.7a546e68.chunk.css.map": "/ERP-Frontend/static/css/main.7a546e68.chunk.css.map",
-    "static/media/neur.jpg": "/ERP-Frontend/static/media/neur.a3505ec7.jpg",
-    "static/media/slick-theme.css": "/ERP-Frontend/static/media/slick.f97e3bbf.svg",
-    "static/media/user-group.png": "/ERP-Frontend/static/media/user-group.70cede06.png"
+    "main.css": "/ErpReact/static/css/main.6bfcc6ed.chunk.css",
+    "main.js": "/ErpReact/static/js/main.fe051d4a.chunk.js",
+    "main.js.map": "/ErpReact/static/js/main.fe051d4a.chunk.js.map",
+    "runtime~main.js": "/ErpReact/static/js/runtime~main.808a4df5.js",
+    "runtime~main.js.map": "/ErpReact/static/js/runtime~main.808a4df5.js.map",
+    "static/css/2.6a9af4d6.chunk.css": "/ErpReact/static/css/2.6a9af4d6.chunk.css",
+    "static/js/2.ddc63ee6.chunk.js": "/ErpReact/static/js/2.ddc63ee6.chunk.js",
+    "static/js/2.ddc63ee6.chunk.js.map": "/ErpReact/static/js/2.ddc63ee6.chunk.js.map",
+    "index.html": "/ErpReact/index.html",
+    "precache-manifest.941a1417e50e624df06a18fef90a1972.js": "/ErpReact/precache-manifest.941a1417e50e624df06a18fef90a1972.js",
+    "service-worker.js": "/ErpReact/service-worker.js",
+    "static/css/2.6a9af4d6.chunk.css.map": "/ErpReact/static/css/2.6a9af4d6.chunk.css.map",
+    "static/css/main.6bfcc6ed.chunk.css.map": "/ErpReact/static/css/main.6bfcc6ed.chunk.css.map",
+    "static/media/neur.svg": "/ErpReact/static/media/neur.f9397590.svg",
+    "static/media/user-group.png": "/ErpReact/static/media/user-group.70cede06.png"
   }
 }
