@@ -1,14 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import reducers from './reducers';
 import Routing from './Routing';
-
 import './styles/index.css';
-
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const createStoreWithMiddleware = createStore(
+    reducers,
+    composeEnhancers(applyMiddleware(thunk))
+);
 //off in github pages
 // import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<Routing />, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={createStoreWithMiddleware}>
+        <Routing />
+    </Provider>,
+    document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -1,0 +1,52 @@
+.message {
+    display: flex;
+
+    + .message {
+        margin-top: 20px;
+    }
+    .media-body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        @include media-breakpoint-up(sm) {
+            margin-right: 10px;
+        }
+
+        > div:last-child {
+            font-size: 11px;
+            color: $gray-600;
+        }
+    }
+
+    &.flex-row-reverse {
+        .media-body {
+            margin-left: 0;
+
+            align-items: flex-end;
+        }
+
+        .az-msg-wrapper {
+            background-color: $az-color-primary;
+            color: #fff;
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    .az-msg-wrapper {
+        padding: 10px;
+        background-color: $gray-300;
+        font-size: $font-size-sm;
+        // margin-bottom: 5px;
+        @include border-radius(2px);
+        display: inline-block;
+        img {
+            // padding-right: 5px;
+            width: 100%;
+            height: auto;
+        }
+    }
+}

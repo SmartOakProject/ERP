@@ -1,9 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { Form, Field } from 'react-final-form';
+import renderInput from './forms/renderInput';
+import { required, validEmail } from './forms/validate';
 
-import logo from '../img/neur.jpg';
-
-export default function Signup() {
+import logo from '../img/neur.svg';
+const onSubmit = formValues => {
+    console.log(formValues);
+};
+const SignUp = () => {
     return (
         <div class="az-signup-wrapper">
             <div class="az-column-signup-left">
@@ -43,70 +48,107 @@ export default function Signup() {
 
                 <div class="az-signup-header">
                     {/* <h4>It's free to signup and only takes a minute.</h4> */}
-
-                    <form action="page-profile.html">
-                        <div class="form-group">
-                            <label>Firstname &amp; Lastname</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                placeholder="Enter your firstname and lastname"
-                            />
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                placeholder="Enter your email"
-                            />
-                        </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input
-                                type="password"
-                                class="form-control"
-                                placeholder="Enter your password"
-                            />{' '}
-                        </div>
-                        <div class="form-group">
-                            <label>Phone Number</label>
-                            <input
-                                type="tel"
-                                class="form-control"
-                                placeholder="Enter your phone number"
-                            />
-                            <label class="tel-under-text">
-                                Your number is kept confidential and not shared
-                                with others
-                            </label>
-                        </div>
-                        <button class="btn btn-az-primary btn-block">
-                            Create Account
-                        </button>
-                        <div class="row row-xs">
-                            <div class="col-sm-6">
-                                <button class="btn btn-block">
-                                    <i class="fab fa-facebook-f"></i> Signup
-                                    with Facebook
+                    <Form
+                        onSubmit={onSubmit}
+                        subscription={{ submitting: true }}
+                        render={({ handleSubmit, submitting }) => (
+                            <form onSubmit={handleSubmit}>
+                                <Field
+                                    name="firstLastName"
+                                    label="Firstname &amp; Lastname"
+                                    placeholder="Enter your firstname and lastname"
+                                    validate={value =>
+                                        required(value, 'first and last name')
+                                    }
+                                    subscription={{
+                                        value: true,
+                                        error: true,
+                                        touched: true
+                                    }}
+                                >
+                                    {renderInput}
+                                </Field>
+                                <Field
+                                    name="emial"
+                                    label="Email"
+                                    placeholder="Enter your email"
+                                    validate={validEmail}
+                                    subscription={{
+                                        value: true,
+                                        error: true,
+                                        touched: true
+                                    }}
+                                >
+                                    {renderInput}
+                                </Field>
+                                <Field
+                                    name="password"
+                                    label="Password"
+                                    placeholder="Enter your password"
+                                    validate={value =>
+                                        required(value, 'password')
+                                    }
+                                    customType="password"
+                                    subscription={{
+                                        value: true,
+                                        error: true,
+                                        touched: true
+                                    }}
+                                >
+                                    {renderInput}
+                                </Field>
+                                <Field
+                                    name="phoneNumber"
+                                    label="Phone Number"
+                                    placeholder="Enter your phone number"
+                                    validate={value =>
+                                        required(value, 'phone number')
+                                    }
+                                    customType="tel"
+                                    underText="Your number is kept confidential and not
+                                    shared with others"
+                                    subscription={{
+                                        value: true,
+                                        error: true,
+                                        touched: true
+                                    }}
+                                >
+                                    {renderInput}
+                                </Field>
+                                <button
+                                    type="submit"
+                                    disabled={submitting}
+                                    class="btn btn-az-primary btn-block"
+                                >
+                                    Create Account
                                 </button>
-                            </div>
-                            <div class="col-sm-6 mt-1 mt-sm-0">
-                                <button class="btn btn-primary btn-block">
-                                    <i class="fab fa-twitter"></i> Signup with
-                                    Twitter
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                                <div class="row row-xs">
+                                    <div class="col-sm-6">
+                                        <button class="btn btn-block">
+                                            <i class="fab fa-facebook-f"></i>
+                                            Signup with Facebook
+                                        </button>
+                                    </div>
+                                    <div class="col-sm-6 mt-1 mt-sm-0">
+                                        <button class="btn btn-primary btn-block">
+                                            <i class="fab fa-twitter"></i>
+                                            Signup with Twitter
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        )}
+                    />
+                    <form action="page-profile.html"></form>
                 </div>
                 <div class="az-signup-footer">
                     <p>
-                        Already have an account?{' '}
-                        <Link to="/signup">Sign In</Link>
+                        Already have an account?
+                        <Link to="/signin"> Sign In</Link>
                     </p>
                 </div>
             </div>
         </div>
     );
-}
+};
+export default SignUp;

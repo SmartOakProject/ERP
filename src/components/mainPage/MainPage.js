@@ -1,12 +1,17 @@
-import React from 'react';
-import axios from 'axios';
-import { Scrollbars } from 'react-custom-scrollbars';
+import React, { useState, useEffect } from 'react';
 
+import { Scrollbars } from 'react-custom-scrollbars';
+import { connect } from 'react-redux';
 import Post from './Post';
-import User2 from '../User2';
-import FastChat from './FastChat';
+import User from '../common/User';
+import FastChat from '../common/FastChat';
 import Loading from '../common/Spinner';
 
+import {
+    fetchPostsAndUsers,
+    fetchActiveUsers,
+    toggleCreatePost
+} from '../../actions/index';
 import {
     FaCamera,
     FaPaperclip,
@@ -16,214 +21,111 @@ import {
     FaRegEdit,
     FaVideo
 } from 'react-icons/fa';
-import { FiCamera, FiVideo, FiFileText } from 'react-icons/fi';
-import Modal from 'react-modal';
+import ReactModal from '../common/Modal';
 
-const customStyles = {
-    overlay: {
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        backgroundColor: 'rgba(0, 0, 0, 0.75)'
-    },
-    content: {
-        top: '30%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-        padding: '0'
-    }
-};
-export default class MainPage extends React.Component {
-    state = { users: [], loading: true, data: [], modalIsOpen: false };
+const MainPage = props => {
+    useEffect(() => {
+        props.fetchActiveUsers();
+        props.fetchPostsAndUsers();
+    }, []);
 
-    componentDidMount() {
-        this.setState({ loading: true });
-        axios
-            .all([
-                axios.get(`https://5dd8f525505c590014d3be77.mockapi.io/post`),
-                axios.get('https://randomuser.me/api/', {
-                    params: {
-                        results: 20
-                    }
-                })
-            ])
-            .then(
-                axios.spread((posts, users) => {
-                    console.log(posts, users);
-
-                    this.setState({
-                        data: posts.data,
-                        users: users.data.results,
-                        loading: false
-                    });
-                })
-            )
-            .catch((googleErr, appleErr) => {
-                console.log(googleErr, appleErr);
-            });
-    }
-
-    openModal = () => {
-        this.setState({ modalIsOpen: true });
-    };
-
-    closeModal = () => {
-        this.setState({ modalIsOpen: false });
-    };
-    render() {
-        return (
-            <div>
-                <Modal
-                    isOpen={this.state.modalIsOpen}
-                    onAfterOpen={this.afterOpenModal}
-                    onRequestClose={this.closeModal}
-                    style={customStyles}
-                    contentLabel="Example Modal"
-                >
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <div class="modal-header">
-                                <div className="modal-avatar">
-                                    <div className="az-img-user-post online">
-                                        <img
-                                            src="https://via.placeholder.com/500x500"
-                                            alt=""
-                                        />
-                                    </div>
-                                </div>
-
-                                <button
-                                    type="button"
-                                    class="close"
-                                    data-dismiss="modal"
-                                    aria-label="Close"
-                                >
-                                    <span
-                                        aria-hidden="true"
-                                        onClick={this.closeModal}
-                                    >
-                                        &times;
-                                    </span>
-                                </button>
-                            </div>
-
-                            <div class="form-group">
-                                <textarea
-                                    name=""
-                                    id=""
-                                    cols="30"
-                                    rows="10"
-                                    placeholder="Post desc"
-                                ></textarea>
-                            </div>
-
-                            <div className="modal-footer">
-                                <div className="modal-actions">
-                                    <FiCamera />
-                                    <FiVideo />
-                                    <FiFileText />
-                                </div>
-
-                                <button
-                                    type="submit"
-                                    class="btn btn-primary modal-send"
-                                >
-                                    Post
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </Modal>
-                <div class="az-content-body">
-                    <div class="az-content-body-posts">
-                        <div id="azChatBody" class="az-chat-body-main">
-                            <Scrollbars style={{ height: '100%' }}>
-                                <div class="az-chat-footer-main">
-                                    {/* <div className="az-img-user-post online">
-                                        <img
-                                            src="https://via.placeholder.com/500x500"
-                                            alt=""
-                                        />
-                                    </div> */}
-                                    <div>
-                                        <span
-                                            className="create-post"
-                                            onClick={() =>
-                                                this.setState({
-                                                    modalIsOpen: true
-                                                })
-                                            }
-                                        >
-                                            <FaRegEdit className="mr-2" />
-                                            Create a post
-                                        </span>
-                                    </div>
-                                    <nav class="nav">
-                                        <a
-                                            href=""
-                                            class="nav-link"
-                                            data-toggle="tooltip"
-                                            title="Add Photo"
-                                        >
-                                            <FaCamera />
-                                        </a>
-                                        <a
-                                            href=""
-                                            class="nav-link"
-                                            data-toggle="tooltip"
-                                            title="Attach a File"
-                                        >
-                                            <FaPaperclip />
-                                        </a>
-                                        <a
-                                            href=""
-                                            class="nav-link"
-                                            data-toggle="tooltip"
-                                            title="Add Emoticons"
-                                        >
-                                            <FaSmile />
-                                        </a>
-                                        <a href="" class="nav-link">
-                                            <FaEllipsisV />
-                                        </a>
-                                    </nav>
-                                </div>
-                                <div class="content-inner">
-                                    {this.state.data.map(e => (
-                                        <Post
-                                            username={e.username}
-                                            avatar={e.avatar}
-                                            date={e.date}
-                                            desc={e.desc}
-                                            img={e.img}
-                                        />
-                                    ))}
-                                </div>
-                            </Scrollbars>
-                        </div>
-                    </div>
-                    <div class="az-content-right-chat-main">
-                        <FastChat />
+    return (
+        <div>
+            <ReactModal />
+            <div class="az-content-body">
+                <div class="az-content-body-posts">
+                    <div id="azChatBody" class="az-chat-body-main">
                         <Scrollbars style={{ height: '100%' }}>
-                            <div id="azChatList" class="az-chat-list">
-                                {this.state.loading ? (
-                                    <Loading />
-                                ) : (
-                                    <User2
-                                        people={this.state.users}
-                                        emial={true}
+                            <div class="az-chat-footer-main">
+                                <div>
+                                    <span
+                                        className="create-post"
+                                        onClick={() => props.toggleCreatePost()}
+                                    >
+                                        <FaRegEdit className="mr-2" />
+                                        Create a post
+                                    </span>
+                                </div>
+                                <nav class="nav">
+                                    <a
+                                        href=""
+                                        class="nav-link"
+                                        data-toggle="tooltip"
+                                        title="Add Photo"
+                                    >
+                                        <FaCamera />
+                                    </a>
+                                    <a
+                                        href=""
+                                        class="nav-link"
+                                        data-toggle="tooltip"
+                                        title="Attach a File"
+                                    >
+                                        <FaPaperclip />
+                                    </a>
+                                    <a
+                                        href=""
+                                        class="nav-link"
+                                        data-toggle="tooltip"
+                                        title="Add Emoticons"
+                                    >
+                                        <FaSmile />
+                                    </a>
+                                    <a href="" class="nav-link">
+                                        <FaEllipsisV />
+                                    </a>
+                                </nav>
+                            </div>
+                            <div class="content-inner">
+                                {props.posts.map(e => (
+                                    <Post
+                                        key={e.id}
+                                        id={e.id}
+                                        username={e.username}
+                                        avatar={e.avatar}
+                                        date={e.date}
+                                        desc={e.desc}
+                                        img={e.img}
+                                        userId={e.userId}
+                                        comments={e.comments}
                                     />
-                                )}
+                                ))}
                             </div>
                         </Scrollbars>
                     </div>
                 </div>
+                <div class="az-content-right-chat-main">
+                    <FastChat />
+                    <Scrollbars style={{ height: '100%' }}>
+                        <div id="azChatList" class="az-chat-list">
+                            {props.users ? (
+                                props.activeUsers.map(e => {
+                                    return (
+                                        <User
+                                            id={e.id}
+                                            name={e.name}
+                                            date={e.id}
+                                            email={e.email}
+                                            key={e.id}
+                                            icons
+                                        />
+                                    );
+                                })
+                            ) : (
+                                <Loading />
+                            )}
+                        </div>
+                    </Scrollbars>
+                </div>
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
+
+const mapStateToProps = state => {
+    return state;
+};
+export default connect(
+    mapStateToProps,
+    { fetchActiveUsers, fetchPostsAndUsers, toggleCreatePost }
+)(MainPage);

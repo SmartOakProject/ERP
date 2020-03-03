@@ -1,63 +1,66 @@
-import React, { Component } from 'react';
-import MyContext from '../../MyContext';
+import React from 'react';
+
 import { FaTrash, FaDotCircle } from 'react-icons/fa';
+import { openFastChat, toggleMainChat } from '../../actions/index';
+import { connect } from 'react-redux';
 
 // az-img-user online = true // green online circle
 // media new=true //red circle
 
-export default class User extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { activeIndex: 0 };
-    }
+const User = ({
+    id,
+    imgSrc,
+    name,
+    date,
+    email,
+    icons,
+    openFastChat,
+    activeUser,
+    isChat,
+    toggleMainChat
+}) => {
+    const className = activeUser === id ? 'media selected' : 'media';
 
-    render() {
-        const className =
-            this.state.activeIndex === this.props.index
-                ? 'media selected'
-                : 'media';
-        return (
-            <div>
-                <MyContext.Consumer>
-                    {context => (
-                        <div
-                            className={className}
-                            key={this.props.index}
-                            onClick={() => {
-                                this.setState({
-                                    activeIndex: this.props.index
-                                });
-                                if (window.innerWidth < 1000) {
-                                    return context.toggleChat();
-                                }
-                            }}
-                        >
-                            <div className="az-img-user">
-                                <img src={this.props.img} alt="" />
-                                {/* <span>2</span> new messages number when new = true */}
-                            </div>
-                            <div className="media-body">
-                                <h6 className="mb-0"></h6>
-                                <div className="media-contact-name">
-                                    <span>{`${this.props.firstName} ${this.props.lastName}`}</span>
-                                    <span>{`${this.props.date} days`}</span>
-                                    {this.props.icons ? (
-                                        <div className="media-contact-icons">
-                                            <FaTrash />
-                                            <FaDotCircle />
-                                        </div>
-                                    ) : (
-                                        ''
-                                    )}
-                                </div>
-                                <p>
-                                    {this.props.emial ? this.props.emial : null}
-                                </p>
-                            </div>
-                        </div>
-                    )}
-                </MyContext.Consumer>
+    const onUserClick = () => {
+        if (isChat) {
+            toggleMainChat();
+        } else {
+            //isMainPage
+            openFastChat(id);
+        }
+    };
+
+    return (
+        <div className={className} onClick={onUserClick}>
+            <div className="az-img-user">
+                <img src="https://via.placeholder.com/500x500" alt="" />
+                {/* <span>2</span> new messages number when new = true */}
             </div>
-        );
-    }
-}
+            <div className="media-body">
+                <h6 className="mb-0"></h6>
+                <div className="media-contact-name">
+                    <span>{name}</span>
+                    <span>{`${date} days`}</span>
+                    {icons ? (
+                        <div className="media-contact-icons">
+                            <FaTrash />
+                            <FaDotCircle />
+                        </div>
+                    ) : (
+                        ''
+                    )}
+                </div>
+                <p>{email ? email : null}</p>
+            </div>
+        </div>
+    );
+};
+const mapStateToProps = state => {
+    return {
+        activeUser: state.fastChat.idUserSelected
+    };
+};
+export default connect(
+    mapStateToProps,
+    { openFastChat, toggleMainChat }
+)(User);

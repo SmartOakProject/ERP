@@ -1,27 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Linkify from 'react-linkify';
 import { FaEllipsisH } from 'react-icons/fa';
 import Moment from 'react-moment';
-import {
-    FaPhone,
-    FaVideo,
-    FaCamera,
-    FaPaperclip,
-    FaSmile,
-    FaEllipsisV,
-    FaRegPaperPlane
-} from 'react-icons/fa';
-
-export default function Post(props) {
+import { connect } from 'react-redux';
+import { FaRegPaperPlane } from 'react-icons/fa';
+import Message from '../common/Message';
+const Post = ({ date, desc, imgSrc, user, comments }) => {
     return (
         <div class="post">
             <div class="post__header">
                 <div className="d-flex align-items-center">
-                    <img src={props.avatar} alt="" />
+                    <img src="https://via.placeholder.com/500x500" alt="" />
                     <div className="ml-3">
-                        <p className="post__name">{props.username}</p>
+                        <p className="post__name">{user ? user.name : null}</p>
                         <span className="post__date">
-                            <Moment format="DD MMMM HH:mm">{props.date}</Moment>
+                            <Moment format="DD MMMM HH:mm">{date}</Moment>
                         </span>
                     </div>
                 </div>
@@ -29,13 +22,13 @@ export default function Post(props) {
             </div>
             <div class="post__body">
                 <div className="post__desc">
-                    <Linkify>{props.desc}</Linkify>
+                    <Linkify>{desc}</Linkify>
                 </div>
                 <div class="post__img">
-                    {props.img && <img src={props.img} alt="" />}
+                    <img src="https://via.placeholder.com/500x500" alt="" />
                 </div>
             </div>
-            <div className="post__action ">
+            <div className="post__action">
                 <div className="d-flex">
                     <span className="mr-2">Like</span>
                     <span>Comment</span>
@@ -72,61 +65,19 @@ export default function Post(props) {
                         </a>
                     </div>
                 </div>
-                <div className="media">
-                    <div className="az-img-user-post online">
-                        <img src="https://via.placeholder.com/500x500" alt="" />
-                    </div>
-                    <div className="media-body">
-                        <div className="az-msg-wrapper">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing
-                            elit. Aenean commodo ligula eget dolor.
-                        </div>
-                        <div>
-                            <span>9:32 am</span>{' '}
-                            <a href="">
-                                <i className="icon ion-android-more-horizontal"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div className="media">
-                    <div className="az-img-user-post online">
-                        <img src="https://via.placeholder.com/500x500" alt="" />
-                    </div>
-                    <div className="media-body">
-                        <div className="az-msg-wrapper">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing
-                            elit. Aenean commodo ligula eget dolor.
-                        </div>
-                        <div>
-                            <span>9:32 am</span>{' '}
-                            <a href="">
-                                <i className="icon ion-android-more-horizontal"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div className="media">
-                    <div className="az-img-user-post online">
-                        <img src="https://via.placeholder.com/500x500" alt="" />
-                    </div>
-                    <div className="media-body">
-                        <div className="az-msg-wrapper">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing
-                            elit. Aenean commodo ligula eget dolor.
-                        </div>
-                        <div>
-                            <span>9:32 am</span>{' '}
-                            <a href="">
-                                <i className="icon ion-android-more-horizontal"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+
+                <Message text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore sit quia sapiente velit voluptate magnam totam ipsa, culpa iure in officia ipsum neque esse, temporibus amet iusto perferendis id repellendus?" />
+
                 <div className="post__comments__more">
                     Load more comments (10)
                 </div>
             </div>
         </div>
     );
-}
+};
+
+const mapStateToProps = (state, ownProps) => {
+    return { user: state.users.find(user => user.id === ownProps.userId) };
+};
+
+export default connect(mapStateToProps)(Post);

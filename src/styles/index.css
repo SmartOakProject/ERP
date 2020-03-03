@@ -1448,79 +1448,96 @@ textarea.form-control {
   background-color: rgba(59, 176, 1, 0.9);
   border-radius: 3px; }
 
-.was-validated .form-control:valid, .form-control.is-valid {
+.was-validated .form-control:valid, .form-control.is-valid, input.form-control.parsley-success,
+textarea.form-control.parsley-success {
   border-color: #3bb001;
   padding-right: calc(1.5em + 0.75rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%233bb001' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: center right calc(0.375em + 0.1875rem);
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem); }
-  .was-validated .form-control:valid:focus, .form-control.is-valid:focus {
+  .was-validated .form-control:valid:focus, .form-control.is-valid:focus, input.form-control.parsley-success:focus,
+  textarea.form-control.parsley-success:focus {
     border-color: #3bb001;
     box-shadow: 0 0 0 0.2rem rgba(59, 176, 1, 0.25); }
   .was-validated .form-control:valid ~ .valid-feedback,
-  .was-validated .form-control:valid ~ .valid-tooltip, .form-control.is-valid ~ .valid-feedback,
-  .form-control.is-valid ~ .valid-tooltip {
+  .was-validated .form-control:valid ~ .valid-tooltip, .form-control.is-valid ~ .valid-feedback, input.form-control.parsley-success ~ .valid-feedback, textarea.form-control.parsley-success ~ .valid-feedback,
+  .form-control.is-valid ~ .valid-tooltip,
+  input.form-control.parsley-success ~ .valid-tooltip,
+  textarea.form-control.parsley-success ~ .valid-tooltip {
     display: block; }
 
-.was-validated textarea.form-control:valid, textarea.form-control.is-valid {
+.was-validated textarea.form-control:valid, textarea.form-control.is-valid,
+textarea.form-control.parsley-success {
   padding-right: calc(1.5em + 0.75rem);
   background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem); }
 
-.was-validated .custom-select:valid, .custom-select.is-valid {
+.was-validated .custom-select:valid, .custom-select.is-valid, input.custom-select.parsley-success,
+textarea.custom-select.parsley-success {
   border-color: #3bb001;
   padding-right: calc((1em + 0.75rem) * 3 / 4 + 1.75rem);
   background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343640' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px, url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%233bb001' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") #fff no-repeat center right 1.75rem/calc(0.75em + 0.375rem) calc(0.75em + 0.375rem); }
-  .was-validated .custom-select:valid:focus, .custom-select.is-valid:focus {
+  .was-validated .custom-select:valid:focus, .custom-select.is-valid:focus, input.custom-select.parsley-success:focus,
+  textarea.custom-select.parsley-success:focus {
     border-color: #3bb001;
     box-shadow: 0 0 0 0.2rem rgba(59, 176, 1, 0.25); }
   .was-validated .custom-select:valid ~ .valid-feedback,
-  .was-validated .custom-select:valid ~ .valid-tooltip, .custom-select.is-valid ~ .valid-feedback,
-  .custom-select.is-valid ~ .valid-tooltip {
+  .was-validated .custom-select:valid ~ .valid-tooltip, .custom-select.is-valid ~ .valid-feedback, input.custom-select.parsley-success ~ .valid-feedback, textarea.custom-select.parsley-success ~ .valid-feedback,
+  .custom-select.is-valid ~ .valid-tooltip,
+  input.custom-select.parsley-success ~ .valid-tooltip,
+  textarea.custom-select.parsley-success ~ .valid-tooltip {
     display: block; }
 
 .was-validated .form-control-file:valid ~ .valid-feedback,
-.was-validated .form-control-file:valid ~ .valid-tooltip, .form-control-file.is-valid ~ .valid-feedback,
-.form-control-file.is-valid ~ .valid-tooltip {
+.was-validated .form-control-file:valid ~ .valid-tooltip, .form-control-file.is-valid ~ .valid-feedback, input.form-control-file.parsley-success ~ .valid-feedback, textarea.form-control-file.parsley-success ~ .valid-feedback,
+.form-control-file.is-valid ~ .valid-tooltip,
+input.form-control-file.parsley-success ~ .valid-tooltip,
+textarea.form-control-file.parsley-success ~ .valid-tooltip {
   display: block; }
 
-.was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
+.was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label, input.form-check-input.parsley-success ~ .form-check-label, textarea.form-check-input.parsley-success ~ .form-check-label {
   color: #3bb001; }
 
 .was-validated .form-check-input:valid ~ .valid-feedback,
-.was-validated .form-check-input:valid ~ .valid-tooltip, .form-check-input.is-valid ~ .valid-feedback,
-.form-check-input.is-valid ~ .valid-tooltip {
+.was-validated .form-check-input:valid ~ .valid-tooltip, .form-check-input.is-valid ~ .valid-feedback, input.form-check-input.parsley-success ~ .valid-feedback, textarea.form-check-input.parsley-success ~ .valid-feedback,
+.form-check-input.is-valid ~ .valid-tooltip,
+input.form-check-input.parsley-success ~ .valid-tooltip,
+textarea.form-check-input.parsley-success ~ .valid-tooltip {
   display: block; }
 
-.was-validated .custom-control-input:valid ~ .custom-control-label, .custom-control-input.is-valid ~ .custom-control-label {
+.was-validated .custom-control-input:valid ~ .custom-control-label, .custom-control-input.is-valid ~ .custom-control-label, input.custom-control-input.parsley-success ~ .custom-control-label, textarea.custom-control-input.parsley-success ~ .custom-control-label {
   color: #3bb001; }
-  .was-validated .custom-control-input:valid ~ .custom-control-label::before, .custom-control-input.is-valid ~ .custom-control-label::before {
+  .was-validated .custom-control-input:valid ~ .custom-control-label::before, .custom-control-input.is-valid ~ .custom-control-label::before, input.custom-control-input.parsley-success ~ .custom-control-label::before, textarea.custom-control-input.parsley-success ~ .custom-control-label::before {
     border-color: #3bb001; }
 
 .was-validated .custom-control-input:valid ~ .valid-feedback,
-.was-validated .custom-control-input:valid ~ .valid-tooltip, .custom-control-input.is-valid ~ .valid-feedback,
-.custom-control-input.is-valid ~ .valid-tooltip {
+.was-validated .custom-control-input:valid ~ .valid-tooltip, .custom-control-input.is-valid ~ .valid-feedback, input.custom-control-input.parsley-success ~ .valid-feedback, textarea.custom-control-input.parsley-success ~ .valid-feedback,
+.custom-control-input.is-valid ~ .valid-tooltip,
+input.custom-control-input.parsley-success ~ .valid-tooltip,
+textarea.custom-control-input.parsley-success ~ .valid-tooltip {
   display: block; }
 
-.was-validated .custom-control-input:valid:checked ~ .custom-control-label::before, .custom-control-input.is-valid:checked ~ .custom-control-label::before {
+.was-validated .custom-control-input:valid:checked ~ .custom-control-label::before, .custom-control-input.is-valid:checked ~ .custom-control-label::before, input.custom-control-input.parsley-success:checked ~ .custom-control-label::before, textarea.custom-control-input.parsley-success:checked ~ .custom-control-label::before {
   border-color: #4ce301;
   background-color: #4ce301; }
 
-.was-validated .custom-control-input:valid:focus ~ .custom-control-label::before, .custom-control-input.is-valid:focus ~ .custom-control-label::before {
+.was-validated .custom-control-input:valid:focus ~ .custom-control-label::before, .custom-control-input.is-valid:focus ~ .custom-control-label::before, input.custom-control-input.parsley-success:focus ~ .custom-control-label::before, textarea.custom-control-input.parsley-success:focus ~ .custom-control-label::before {
   box-shadow: 0 0 0 0.2rem rgba(59, 176, 1, 0.25); }
 
-.was-validated .custom-control-input:valid:focus:not(:checked) ~ .custom-control-label::before, .custom-control-input.is-valid:focus:not(:checked) ~ .custom-control-label::before {
+.was-validated .custom-control-input:valid:focus:not(:checked) ~ .custom-control-label::before, .custom-control-input.is-valid:focus:not(:checked) ~ .custom-control-label::before, input.custom-control-input.parsley-success:focus:not(:checked) ~ .custom-control-label::before, textarea.custom-control-input.parsley-success:focus:not(:checked) ~ .custom-control-label::before {
   border-color: #3bb001; }
 
-.was-validated .custom-file-input:valid ~ .custom-file-label, .custom-file-input.is-valid ~ .custom-file-label {
+.was-validated .custom-file-input:valid ~ .custom-file-label, .custom-file-input.is-valid ~ .custom-file-label, input.custom-file-input.parsley-success ~ .custom-file-label, textarea.custom-file-input.parsley-success ~ .custom-file-label {
   border-color: #3bb001; }
 
 .was-validated .custom-file-input:valid ~ .valid-feedback,
-.was-validated .custom-file-input:valid ~ .valid-tooltip, .custom-file-input.is-valid ~ .valid-feedback,
-.custom-file-input.is-valid ~ .valid-tooltip {
+.was-validated .custom-file-input:valid ~ .valid-tooltip, .custom-file-input.is-valid ~ .valid-feedback, input.custom-file-input.parsley-success ~ .valid-feedback, textarea.custom-file-input.parsley-success ~ .valid-feedback,
+.custom-file-input.is-valid ~ .valid-tooltip,
+input.custom-file-input.parsley-success ~ .valid-tooltip,
+textarea.custom-file-input.parsley-success ~ .valid-tooltip {
   display: block; }
 
-.was-validated .custom-file-input:valid:focus ~ .custom-file-label, .custom-file-input.is-valid:focus ~ .custom-file-label {
+.was-validated .custom-file-input:valid:focus ~ .custom-file-label, .custom-file-input.is-valid:focus ~ .custom-file-label, input.custom-file-input.parsley-success:focus ~ .custom-file-label, textarea.custom-file-input.parsley-success:focus ~ .custom-file-label {
   border-color: #3bb001;
   box-shadow: 0 0 0 0.2rem rgba(59, 176, 1, 0.25); }
 
@@ -1545,79 +1562,96 @@ textarea.form-control {
   background-color: rgba(220, 53, 69, 0.9);
   border-radius: 3px; }
 
-.was-validated .form-control:invalid, .form-control.is-invalid {
+.was-validated .form-control:invalid, .form-control.is-invalid, input.form-control.parsley-error,
+textarea.form-control.parsley-error {
   border-color: #dc3545;
   padding-right: calc(1.5em + 0.75rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23dc3545' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23dc3545' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E");
   background-repeat: no-repeat;
   background-position: center right calc(0.375em + 0.1875rem);
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem); }
-  .was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {
+  .was-validated .form-control:invalid:focus, .form-control.is-invalid:focus, input.form-control.parsley-error:focus,
+  textarea.form-control.parsley-error:focus {
     border-color: #dc3545;
     box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25); }
   .was-validated .form-control:invalid ~ .invalid-feedback,
-  .was-validated .form-control:invalid ~ .invalid-tooltip, .form-control.is-invalid ~ .invalid-feedback,
-  .form-control.is-invalid ~ .invalid-tooltip {
+  .was-validated .form-control:invalid ~ .invalid-tooltip, .form-control.is-invalid ~ .invalid-feedback, input.form-control.parsley-error ~ .invalid-feedback, textarea.form-control.parsley-error ~ .invalid-feedback,
+  .form-control.is-invalid ~ .invalid-tooltip,
+  input.form-control.parsley-error ~ .invalid-tooltip,
+  textarea.form-control.parsley-error ~ .invalid-tooltip {
     display: block; }
 
-.was-validated textarea.form-control:invalid, textarea.form-control.is-invalid {
+.was-validated textarea.form-control:invalid, textarea.form-control.is-invalid,
+textarea.form-control.parsley-error {
   padding-right: calc(1.5em + 0.75rem);
   background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem); }
 
-.was-validated .custom-select:invalid, .custom-select.is-invalid {
+.was-validated .custom-select:invalid, .custom-select.is-invalid, input.custom-select.parsley-error,
+textarea.custom-select.parsley-error {
   border-color: #dc3545;
   padding-right: calc((1em + 0.75rem) * 3 / 4 + 1.75rem);
   background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343640' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px, url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23dc3545' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23dc3545' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E") #fff no-repeat center right 1.75rem/calc(0.75em + 0.375rem) calc(0.75em + 0.375rem); }
-  .was-validated .custom-select:invalid:focus, .custom-select.is-invalid:focus {
+  .was-validated .custom-select:invalid:focus, .custom-select.is-invalid:focus, input.custom-select.parsley-error:focus,
+  textarea.custom-select.parsley-error:focus {
     border-color: #dc3545;
     box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25); }
   .was-validated .custom-select:invalid ~ .invalid-feedback,
-  .was-validated .custom-select:invalid ~ .invalid-tooltip, .custom-select.is-invalid ~ .invalid-feedback,
-  .custom-select.is-invalid ~ .invalid-tooltip {
+  .was-validated .custom-select:invalid ~ .invalid-tooltip, .custom-select.is-invalid ~ .invalid-feedback, input.custom-select.parsley-error ~ .invalid-feedback, textarea.custom-select.parsley-error ~ .invalid-feedback,
+  .custom-select.is-invalid ~ .invalid-tooltip,
+  input.custom-select.parsley-error ~ .invalid-tooltip,
+  textarea.custom-select.parsley-error ~ .invalid-tooltip {
     display: block; }
 
 .was-validated .form-control-file:invalid ~ .invalid-feedback,
-.was-validated .form-control-file:invalid ~ .invalid-tooltip, .form-control-file.is-invalid ~ .invalid-feedback,
-.form-control-file.is-invalid ~ .invalid-tooltip {
+.was-validated .form-control-file:invalid ~ .invalid-tooltip, .form-control-file.is-invalid ~ .invalid-feedback, input.form-control-file.parsley-error ~ .invalid-feedback, textarea.form-control-file.parsley-error ~ .invalid-feedback,
+.form-control-file.is-invalid ~ .invalid-tooltip,
+input.form-control-file.parsley-error ~ .invalid-tooltip,
+textarea.form-control-file.parsley-error ~ .invalid-tooltip {
   display: block; }
 
-.was-validated .form-check-input:invalid ~ .form-check-label, .form-check-input.is-invalid ~ .form-check-label {
+.was-validated .form-check-input:invalid ~ .form-check-label, .form-check-input.is-invalid ~ .form-check-label, input.form-check-input.parsley-error ~ .form-check-label, textarea.form-check-input.parsley-error ~ .form-check-label {
   color: #dc3545; }
 
 .was-validated .form-check-input:invalid ~ .invalid-feedback,
-.was-validated .form-check-input:invalid ~ .invalid-tooltip, .form-check-input.is-invalid ~ .invalid-feedback,
-.form-check-input.is-invalid ~ .invalid-tooltip {
+.was-validated .form-check-input:invalid ~ .invalid-tooltip, .form-check-input.is-invalid ~ .invalid-feedback, input.form-check-input.parsley-error ~ .invalid-feedback, textarea.form-check-input.parsley-error ~ .invalid-feedback,
+.form-check-input.is-invalid ~ .invalid-tooltip,
+input.form-check-input.parsley-error ~ .invalid-tooltip,
+textarea.form-check-input.parsley-error ~ .invalid-tooltip {
   display: block; }
 
-.was-validated .custom-control-input:invalid ~ .custom-control-label, .custom-control-input.is-invalid ~ .custom-control-label {
+.was-validated .custom-control-input:invalid ~ .custom-control-label, .custom-control-input.is-invalid ~ .custom-control-label, input.custom-control-input.parsley-error ~ .custom-control-label, textarea.custom-control-input.parsley-error ~ .custom-control-label {
   color: #dc3545; }
-  .was-validated .custom-control-input:invalid ~ .custom-control-label::before, .custom-control-input.is-invalid ~ .custom-control-label::before {
+  .was-validated .custom-control-input:invalid ~ .custom-control-label::before, .custom-control-input.is-invalid ~ .custom-control-label::before, input.custom-control-input.parsley-error ~ .custom-control-label::before, textarea.custom-control-input.parsley-error ~ .custom-control-label::before {
     border-color: #dc3545; }
 
 .was-validated .custom-control-input:invalid ~ .invalid-feedback,
-.was-validated .custom-control-input:invalid ~ .invalid-tooltip, .custom-control-input.is-invalid ~ .invalid-feedback,
-.custom-control-input.is-invalid ~ .invalid-tooltip {
+.was-validated .custom-control-input:invalid ~ .invalid-tooltip, .custom-control-input.is-invalid ~ .invalid-feedback, input.custom-control-input.parsley-error ~ .invalid-feedback, textarea.custom-control-input.parsley-error ~ .invalid-feedback,
+.custom-control-input.is-invalid ~ .invalid-tooltip,
+input.custom-control-input.parsley-error ~ .invalid-tooltip,
+textarea.custom-control-input.parsley-error ~ .invalid-tooltip {
   display: block; }
 
-.was-validated .custom-control-input:invalid:checked ~ .custom-control-label::before, .custom-control-input.is-invalid:checked ~ .custom-control-label::before {
+.was-validated .custom-control-input:invalid:checked ~ .custom-control-label::before, .custom-control-input.is-invalid:checked ~ .custom-control-label::before, input.custom-control-input.parsley-error:checked ~ .custom-control-label::before, textarea.custom-control-input.parsley-error:checked ~ .custom-control-label::before {
   border-color: #e4606d;
   background-color: #e4606d; }
 
-.was-validated .custom-control-input:invalid:focus ~ .custom-control-label::before, .custom-control-input.is-invalid:focus ~ .custom-control-label::before {
+.was-validated .custom-control-input:invalid:focus ~ .custom-control-label::before, .custom-control-input.is-invalid:focus ~ .custom-control-label::before, input.custom-control-input.parsley-error:focus ~ .custom-control-label::before, textarea.custom-control-input.parsley-error:focus ~ .custom-control-label::before {
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25); }
 
-.was-validated .custom-control-input:invalid:focus:not(:checked) ~ .custom-control-label::before, .custom-control-input.is-invalid:focus:not(:checked) ~ .custom-control-label::before {
+.was-validated .custom-control-input:invalid:focus:not(:checked) ~ .custom-control-label::before, .custom-control-input.is-invalid:focus:not(:checked) ~ .custom-control-label::before, input.custom-control-input.parsley-error:focus:not(:checked) ~ .custom-control-label::before, textarea.custom-control-input.parsley-error:focus:not(:checked) ~ .custom-control-label::before {
   border-color: #dc3545; }
 
-.was-validated .custom-file-input:invalid ~ .custom-file-label, .custom-file-input.is-invalid ~ .custom-file-label {
+.was-validated .custom-file-input:invalid ~ .custom-file-label, .custom-file-input.is-invalid ~ .custom-file-label, input.custom-file-input.parsley-error ~ .custom-file-label, textarea.custom-file-input.parsley-error ~ .custom-file-label {
   border-color: #dc3545; }
 
 .was-validated .custom-file-input:invalid ~ .invalid-feedback,
-.was-validated .custom-file-input:invalid ~ .invalid-tooltip, .custom-file-input.is-invalid ~ .invalid-feedback,
-.custom-file-input.is-invalid ~ .invalid-tooltip {
+.was-validated .custom-file-input:invalid ~ .invalid-tooltip, .custom-file-input.is-invalid ~ .invalid-feedback, input.custom-file-input.parsley-error ~ .invalid-feedback, textarea.custom-file-input.parsley-error ~ .invalid-feedback,
+.custom-file-input.is-invalid ~ .invalid-tooltip,
+input.custom-file-input.parsley-error ~ .invalid-tooltip,
+textarea.custom-file-input.parsley-error ~ .invalid-tooltip {
   display: block; }
 
-.was-validated .custom-file-input:invalid:focus ~ .custom-file-label, .custom-file-input.is-invalid:focus ~ .custom-file-label {
+.was-validated .custom-file-input:invalid:focus ~ .custom-file-label, .custom-file-input.is-invalid:focus ~ .custom-file-label, input.custom-file-input.parsley-error:focus ~ .custom-file-label, textarea.custom-file-input.parsley-error:focus ~ .custom-file-label {
   border-color: #dc3545;
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25); }
 
@@ -7942,13 +7976,13 @@ a.text-dark:hover, a.text-dark:focus {
   padding: 6px 10px;
   font-size: 0.8125rem; }
 
-.has-success .select2-container--default .select2-selection--single {
+.has-success .select2-container--default .select2-selection--single, .parsley-select.parsley-success .select2-container--default .select2-selection--single {
   border-color: #3bb001; }
 
 .has-warning .select2-container--default .select2-selection--single {
   border-color: #ffc107; }
 
-.has-danger .select2-container--default .select2-selection--single {
+.has-danger .select2-container--default .select2-selection--single, .parsley-select.parsley-error .select2-container--default .select2-selection--single {
   border-color: #dc3545; }
 
 .select2-xs + .select2-container {
@@ -8038,6 +8072,65 @@ a.text-dark:hover, a.text-dark:focus {
 .sp-palette .sp-thumb-el:hover,
 .sp-palette .sp-thumb-el.sp-thumb-active {
   border-color: #343640; }
+
+/* ###### 4.6 Parsley ###### */
+input.parsley-error:focus,
+textarea.parsley-error:focus {
+  box-shadow: none !important; }
+
+input.parsley-success:focus,
+textarea.parsley-success:focus {
+  box-shadow: none !important; }
+
+.parsley-checkbox.parsley-error {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid #dc3545; }
+
+.parsley-checkbox.parsley-success {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid #3bb001; }
+
+.parsley-errors-list {
+  color: #dc3545;
+  list-style: none;
+  font-size: 12px;
+  padding: 0;
+  margin-bottom: 0; }
+  .parsley-errors-list li {
+    margin: 5px 0 0; }
+
+/***** CUSTOM STYLED ERROR MESSAGE *****/
+.parsley-style-1 .parsley-input.parsley-error .form-control {
+  background-color: #fef9f9;
+  border-color: #dc3545;
+  border-bottom-width: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0; }
+
+.parsley-style-1 .parsley-input.parsley-success .form-control {
+  border-color: #3bb001; }
+
+.parsley-style-1 .parsley-checkbox.parsley-error {
+  border: 1px solid #dc3545;
+  background-color: #fef9f9;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px; }
+
+.parsley-style-1 .parsley-select.parsley-error .select2-container--default .select2-selection--single {
+  background-color: #fef9f9;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0; }
+
+.parsley-style-1 .parsley-errors-list.filled {
+  background-color: #dc3545;
+  color: #fff;
+  padding: 7px 10px;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px; }
+  .parsley-style-1 .parsley-errors-list.filled li:first-child {
+    margin-top: 0; }
 
 /* ############### CUSTOM ELEMENT STYLES ############### */
 /* ###### 5.1 Buttons  ###### */
@@ -10018,6 +10111,19 @@ a.text-dark:hover, a.text-dark:focus {
   margin-bottom: 5px; }
 
 /* ###### 7.3 Chat  ###### */
+.contact {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  .contact__img {
+    width: 44px;
+    height: 44px; }
+  .contact__name {
+    margin-top: 5px;
+    font-size: 12px; }
+
 @media (max-width: 991.98px) {
   .az-content-body-show .az-header-menu-icon {
     display: none; }
@@ -10040,7 +10146,8 @@ a.text-dark:hover, a.text-dark:focus {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 0; }
+  padding: 0;
+  height: 90vh; }
   @media (min-width: 576px) {
     .az-content-left-chat {
       padding: 0 20px; } }
@@ -10264,21 +10371,6 @@ a.text-dark:hover, a.text-dark:focus {
       overflow: hidden; } }
   .az-chat-body .content-inner {
     padding: 20px; }
-  .az-chat-body .media + .media {
-    margin-top: 20px; }
-  .az-chat-body .media.flex-row-reverse .media-body {
-    margin-left: 0;
-    margin-right: 20px;
-    align-items: flex-end; }
-    @media (min-width: 576px) {
-      .az-chat-body .media.flex-row-reverse .media-body {
-        margin-left: 55px; } }
-  .az-chat-body .media.flex-row-reverse .az-msg-wrapper {
-    background-color: #3251cd;
-    color: #fff; }
-    .az-chat-body .media.flex-row-reverse .az-msg-wrapper img {
-      width: 100%;
-      height: auto; }
   .az-chat-body .media-body {
     margin-left: 20px;
     display: flex;
@@ -10303,17 +10395,6 @@ a.text-dark:hover, a.text-dark:focus {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px; }
-
-.az-msg-wrapper {
-  padding: 10px 15px;
-  background-color: #dee2e6;
-  font-size: 13px;
-  border-radius: 2px;
-  display: inline-block; }
-  .az-msg-wrapper img {
-    padding-right: 5px;
-    width: 100%;
-    height: auto; }
 
 .az-chat-footer {
   display: flex;
@@ -10804,27 +10885,32 @@ a.text-dark:hover, a.text-dark:focus {
       color: #212229;
       font-weight: 500; }
 
-.info {
-  width: 70%;
-  margin: 0 auto; }
-  @media (max-width: 991.98px) {
-    .info {
-      width: 90%;
-      background-color: #fff; } }
-  .info h2 {
+.info-container {
+  display: flex;
+  height: 91vh; }
+  .info-container .info {
+    width: 70%;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 10rem; }
+    @media (max-width: 991.98px) {
+      .info-container .info {
+        width: 90%;
+        background-color: #fff; } }
+  .info-container h2 {
     background: #fff;
     border: none;
     margin: 20px; }
-  .info .rc-collapse {
+  .info-container .rc-collapse {
     border-radius: 3px; }
-  .info .rc-collapse-anim-active {
+  .info-container .rc-collapse-anim-active {
     transition: height 0.2s ease-out; }
-  .info .rc-collapse > .rc-collapse-item {
+  .info-container .rc-collapse > .rc-collapse-item {
     background-color: #f7f7f7;
     border-top: 1px solid #d9d9d9; }
-  .info .rc-collapse > .rc-collapse-item:first-child {
+  .info-container .rc-collapse > .rc-collapse-item:first-child {
     border-top: none; }
-  .info .rc-collapse > .rc-collapse-item > .rc-collapse-header {
+  .info-container .rc-collapse > .rc-collapse-item > .rc-collapse-header {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
@@ -10833,21 +10919,21 @@ a.text-dark:hover, a.text-dark:focus {
     padding: 10px 16px;
     color: #666;
     cursor: pointer; }
-    .info .rc-collapse > .rc-collapse-item > .rc-collapse-header svg {
+    .info-container .rc-collapse > .rc-collapse-item > .rc-collapse-header svg {
       display: none; }
-  .info .rc-collapse > .rc-collapse-item > .rc-collapse-header .rc-collapse-extra {
+  .info-container .rc-collapse > .rc-collapse-item > .rc-collapse-header .rc-collapse-extra {
     margin: 0 16px 0 auto; }
-  .info .rc-collapse-content {
+  .info-container .rc-collapse-content {
     overflow: hidden;
     color: #666;
     padding: 0 16px;
     background-color: #fff; }
-  .info .rc-collapse-content > .rc-collapse-content-box {
+  .info-container .rc-collapse-content > .rc-collapse-content-box {
     margin-top: 16px;
     margin-bottom: 16px; }
-  .info .rc-collapse-content-inactive {
+  .info-container .rc-collapse-content-inactive {
     display: none; }
-  .info .rc-collapse-item:last-child > .rc-collapse-content {
+  .info-container .rc-collapse-item:last-child > .rc-collapse-content {
     border-radius: 0 0 3px 3px; }
 
 /* ###### 7.6 Mail  ###### */
@@ -11295,15 +11381,6 @@ a.text-dark:hover, a.text-dark:focus {
   @media (min-width: 992px) {
     .scrollbar-profile {
       height: 100%; } }
-
-.scrollbar-profile-posts {
-  height: 93% !important;
-  overflow: hidden !important; }
-  @media (max-width: 991.98px) {
-    .scrollbar-profile-posts {
-      overflow: visible !important; }
-      .scrollbar-profile-posts div:first-of-type {
-        position: relative !important; } }
 
 .az-content-left-profile {
   padding-right: 0;
@@ -12066,6 +12143,9 @@ a.text-dark:hover, a.text-dark:focus {
       font-size: 13px;
       font-weight: 600;
       color: #343640; }
+      .small-chat .chat-msg-name h6:hover {
+        text-decoration: underline;
+        cursor: pointer; }
   .small-chat .small-chat-footer {
     display: flex;
     align-items: center;
@@ -12103,36 +12183,6 @@ a.text-dark:hover, a.text-dark:focus {
 .small-chat-body .content-inner {
   padding: 10px; }
 
-.small-chat-body .media + .media {
-  margin-top: 20px; }
-
-.small-chat-body .media.flex-row-reverse .media-body {
-  margin-left: 0;
-  margin-right: 10px;
-  align-items: flex-end; }
-  @media (min-width: 576px) {
-    .small-chat-body .media.flex-row-reverse .media-body {
-      margin-left: 25px; } }
-
-.small-chat-body .media.flex-row-reverse .az-msg-wrapper {
-  background-color: #3251cd;
-  color: #fff; }
-  .small-chat-body .media.flex-row-reverse .az-msg-wrapper img {
-    width: 100%;
-    height: auto; }
-
-.small-chat-body .media-body {
-  margin-left: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; }
-  @media (min-width: 576px) {
-    .small-chat-body .media-body {
-      margin-right: 10px; } }
-  .small-chat-body .media-body > div:last-child {
-    font-size: 11px;
-    color: #70737c; }
-
 .small-chat-body .az-chat-time {
   display: block;
   position: relative;
@@ -12145,30 +12195,6 @@ a.text-dark:hover, a.text-dark:focus {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px; }
-
-.small-chat-body .az-chat-time {
-  display: block;
-  position: relative;
-  text-align: center;
-  margin: 20px 0; }
-  .small-chat-body .az-chat-time:first-of-type {
-    margin-top: 0; }
-  .small-chat-body .az-chat-time span {
-    font-size: 10px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px; }
-
-.small-chat-body .az-msg-wrapper {
-  padding: 10px 15px;
-  background-color: #dee2e6;
-  font-size: 13px;
-  margin-bottom: 5px;
-  border-radius: 2px;
-  display: inline-block; }
-  .small-chat-body .az-msg-wrapper img {
-    width: 100%;
-    height: auto; }
 
 .small-chat-body .az-msg-send {
   font-size: 18px;
@@ -12354,6 +12380,10 @@ a.text-dark:hover, a.text-dark:focus {
     border-radius: 3px;
     background-color: #fff;
     border: 1px solid #dddfe2; }
+    @media (max-width: 991.98px) {
+      .az-chat-body-main .post {
+        width: 95vw;
+        padding: 10px; } }
     .az-chat-body-main .post__header {
       display: flex;
       justify-content: space-between;
@@ -12383,15 +12413,16 @@ a.text-dark:hover, a.text-dark:focus {
         border: 1px solid #dee2e6;
         margin-bottom: 10px;
         width: 92%;
-        border-radius: 12px;
+        border-radius: 10px;
         display: flex;
         align-items: center; }
         .az-chat-body-main .post__msg .input-wrapper .form-control {
           border: none;
-          border-radius: 12px; }
+          border-radius: 10px;
+          height: 35px; }
         .az-chat-body-main .post__msg .input-wrapper .az-msg-send {
           margin-right: 15px;
-          font-size: 16px; }
+          font-size: 15px; }
     .az-chat-body-main .post__desc {
       color: #1d2129;
       font-size: 14px;
@@ -12418,6 +12449,7 @@ a.text-dark:hover, a.text-dark:focus {
       .az-chat-body-main .post__comments .media {
         margin-bottom: 10px; }
       .az-chat-body-main .post__comments__more {
+        margin-top: 10px;
         cursor: pointer;
         color: #385898; }
 
@@ -12432,6 +12464,10 @@ a.text-dark:hover, a.text-dark:focus {
   margin-top: 15px;
   background: #fff;
   border: 1px solid #dee2e6; }
+  @media (max-width: 991.98px) {
+    .az-chat-footer-main {
+      width: 95vw;
+      padding: 5px 10px; } }
   .az-chat-footer-main .create-post {
     margin-left: 20px;
     cursor: pointer;
@@ -12480,3 +12516,36 @@ a.text-dark:hover, a.text-dark:focus {
 .az-msg-send {
   font-size: 20px;
   color: #007bff; }
+
+.message {
+  display: flex; }
+  .message + .message {
+    margin-top: 20px; }
+  .message .media-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; }
+    @media (min-width: 576px) {
+      .message .media-body {
+        margin-right: 10px; } }
+    .message .media-body > div:last-child {
+      font-size: 11px;
+      color: #70737c; }
+  .message.flex-row-reverse .media-body {
+    margin-left: 0;
+    align-items: flex-end; }
+  .message.flex-row-reverse .az-msg-wrapper {
+    background-color: #3251cd;
+    color: #fff; }
+    .message.flex-row-reverse .az-msg-wrapper img {
+      width: 100%;
+      height: auto; }
+  .message .az-msg-wrapper {
+    padding: 10px;
+    background-color: #dee2e6;
+    font-size: 13px;
+    border-radius: 2px;
+    display: inline-block; }
+    .message .az-msg-wrapper img {
+      width: 100%;
+      height: auto; }

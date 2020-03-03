@@ -1,379 +1,174 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
-
-import { FaPhone, FaVideo } from 'react-icons/fa';
+import { connect } from 'react-redux';
+import Post from './mainPage/Post';
+import Spinner from './common/Spinner';
+import { fetchUserPosts, fetchUser } from '../actions/index';
+import RolesList from './common/RolesList';
 import {
     IoLogoGithub,
     IoLogoTwitter,
     IoLogoLinkedin,
     IoMdLink
 } from 'react-icons/io';
+import {
+    FaCamera,
+    FaPaperclip,
+    FaSmile,
+    FaEllipsisV,
+    FaRegPaperPlane,
+    FaRegEdit,
+    FaPhone,
+    FaVideo
+} from 'react-icons/fa';
 
-export default class Profile extends Component {
-    render() {
-        return (
-            <Scrollbars className="scrollbar-profile">
-                <div class="profile-content">
-                    <div class="az-content-left-profile">
-                        <div class="az-profile-overview">
-                            <div class="az-img-user">
-                                <img
-                                    src="https://via.placeholder.com/500x500"
-                                    alt=""
-                                />
-                            </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <div>
-                                    <h5 class="az-profile-name">
-                                        Sophia White
-                                    </h5>
-                                    <p class="az-profile-name-text">
-                                        UI/UX Designer
-                                    </p>
-                                </div>
-                                <div class="btn-icon-list">
-                                    <button class="btn-indigo btn-icon">
-                                        <FaPhone />
-                                    </button>
-                                    <button class="btn-primary btn-icon">
-                                        <FaVideo />
-                                    </button>
-                                </div>
-                            </div>
+const Profile = props => {
+    useEffect(() => {
+        props.fetchUserPosts(props.match.params.id);
+        props.fetchUser(props.match.params.id);
+    }, []);
 
-                            <label class="az-content-label mt-4 mb-4">
-                                Websites &amp; Social Channel
-                            </label>
-                            <div class="az-profile-social-list">
-                                <a href="" class="media-icon">
-                                    <IoLogoGithub />
-                                </a>
-                                <a href="" class="media-icon">
-                                    <IoLogoTwitter />
-                                </a>
-                                <a href="" class="media-icon">
-                                    <IoLogoLinkedin />
-                                </a>
-                                <a href="" class="media-icon">
-                                    <IoMdLink />
-                                </a>
-                                <a href="" class="media-icon">
-                                    <IoMdLink />
-                                </a>
+    const renderPosts = () => {
+        return props.posts.length ? (
+            props.posts.map(e => (
+                <Post
+                    key={e.id}
+                    id={e.id}
+                    username={e.username}
+                    avatar={e.avatar}
+                    date={e.date}
+                    desc={e.desc}
+                    img={e.img}
+                    userId={e.userId}
+                    comments={e.comments}
+                />
+            ))
+        ) : (
+            <Spinner />
+        );
+    };
+    if (!props.user) {
+        return <Spinner />;
+    }
+    return (
+        <Scrollbars className="scrollbar-profile">
+            <div className="profile-content">
+                <div className="az-content-left-profile">
+                    <div className="az-profile-overview">
+                        <div className="az-img-user">
+                            <img
+                                src="https://via.placeholder.com/500x500"
+                                alt=""
+                            />
+                        </div>
+                        <div className="d-flex justify-content-between mb-2">
+                            <div>
+                                <h5 className="az-profile-name">
+                                    {props.user.name}
+                                </h5>
+                                <p className="az-profile-name-text">
+                                    {props.user.company.bs}
+                                </p>
                             </div>
-                            <label class="az-content-label mt-4 mb-2">
-                                Description
-                            </label>
-                            <div class="az-profile-bio mt-3">
-                                Genius, Compiler, Powerful Multitasker, Fantasy
-                                Fruit Loop, Replacement President of a Major
-                                Soft Drink Manufacturer.Genius, Compiler,
-                                Powerful Multitasker, Fantasy Fruit Loop,
-                                Replacement President of a Major Soft Drink
-                                Manufacturer.Genius, Compiler, Powerful
-                                Multitasker, Fantasy Fruit Loop, Replacement
-                                President of a Major
+                            <div className="btn-icon-list">
+                                <button className="btn-indigo btn-icon">
+                                    <FaPhone />
+                                </button>
+                                <button className="btn-primary btn-icon">
+                                    <FaVideo />
+                                </button>
                             </div>
+                        </div>
+
+                        <label className="az-content-label mt-4 mb-4">
+                            Websites &amp; Social Channel
+                        </label>
+                        <div className="az-profile-social-list">
+                            <a href="" className="media-icon">
+                                <IoLogoGithub />
+                            </a>
+                            <a href="" className="media-icon">
+                                <IoLogoTwitter />
+                            </a>
+                            <a href="" className="media-icon">
+                                <IoLogoLinkedin />
+                            </a>
+                            <a href="" className="media-icon">
+                                <IoMdLink />
+                            </a>
+                            <a href="" className="media-icon">
+                                <IoMdLink />
+                            </a>
+                        </div>
+                        <label className="az-content-label mt-4 mb-2">
+                            Description
+                        </label>
+                        <div className="az-profile-bio mt-3">
+                            {props.user.company.catchPhrase}
                         </div>
                     </div>
+                </div>
 
-                    <div class="az-content-body az-content-body-chat profile-activity">
-                        <div class="az-chat-header">
-                            <div class="az-chat-msg-name">
-                                <h5 className="mb-0">Activity</h5>
-                            </div>
-                        </div>
-                        <Scrollbars className="scrollbar-profile-posts">
-                            <div id="azChatBody" class="az-chat-body">
-                                <div class="content-inner">
-                                    <label class="az-chat-time">
-                                        <span>3 days ago</span>
-                                    </label>
-                                    <div class="media">
-                                        <div class="az-img-user online">
-                                            <img
-                                                src="https://via.placeholder.com/500x500"
-                                                alt=""
-                                            />
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="msg-body">
-                                                <div class="az-msg-wrapper">
-                                                    Lorem ipsum dolor sit amet
-                                                    consectetur adipisicing
-                                                    elit. Saepe, eligendi.
-                                                    Repudiandae consequuntur cor
-                                                </div>
-                                                <i class="fas fa-ellipsis-h "></i>
-                                            </div>
-                                            <div class="msg-body">
-                                                <div class="az-msg-wrapper">
-                                                    Lorem ipsum dolor sit amet,
-                                                    consectetuer adipiscing
-                                                    elit. Aenean commodo ligula
-                                                    eget dolor.
-                                                </div>
-                                                <i class="fas fa-ellipsis-h "></i>
-                                            </div>
-                                            <div class="az-msg-wrapper p-0">
-                                                <img
-                                                    src="https://via.placeholder.com/500x334"
-                                                    alt=""
-                                                />
-                                            </div>
-                                            <div>
-                                                <span>9:48 am</span>
-                                                <a href="">
-                                                    <i class="icon ion-android-more-horizontal"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="media">
-                                        <div class="az-img-user online">
-                                            <img
-                                                src="https://via.placeholder.com/500x500"
-                                                alt=""
-                                            />
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="msg-body">
-                                                <div class="az-msg-wrapper">
-                                                    Lorem ipsum dolor sit amet,
-                                                    consectetuer adipiscing
-                                                    elit. Aenean commodo ligula
-                                                    eget dolor.
-                                                </div>
-                                                <i class="fas fa-ellipsis-h"></i>
-                                            </div>
-                                            <div class="msg-body">
-                                                <div class="az-msg-wrapper">
-                                                    Lorem ipsum dolor sit amet,
-                                                    consectetuer adipiscing
-                                                    elit. Aenean commodo ligula
-                                                    eget dolor.
-                                                </div>
-                                                <i class="fas fa-ellipsis-h"></i>
-                                            </div>
-
-                                            <div class="az-msg-wrapper p-0">
-                                                <img
-                                                    src="https://via.placeholder.com/500x334"
-                                                    alt=""
-                                                />
-                                            </div>
-                                            <div>
-                                                <span>9:32 am</span>
-                                                <a href="">
-                                                    <i class="icon ion-android-more-horizontal"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="media">
-                                        <div class="az-img-user online">
-                                            <img
-                                                src="https://via.placeholder.com/500x500"
-                                                alt=""
-                                            />
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="msg-body">
-                                                <div class="az-msg-wrapper">
-                                                    Lorem ipsum dolor sit amet,
-                                                    consectetuer adipiscing
-                                                    elit. Aenean commodo ligula
-                                                    eget dolor.
-                                                </div>
-                                                <i class="fas fa-ellipsis-h "></i>
-                                            </div>
-                                            <div>
-                                                <span>11:22 am</span>
-                                                <a href="">
-                                                    <i class="icon ion-android-more-horizontal"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <label class="az-chat-time">
-                                        <span>Yesterday</span>
-                                    </label>
-
-                                    <div class="media">
-                                        <div class="az-img-user online">
-                                            <img
-                                                src="https://via.placeholder.com/500x500"
-                                                alt=""
-                                            />
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="msg-body">
-                                                <div class="az-msg-wrapper">
-                                                    Lorem ipsum dolor sit amet,
-                                                    consectetuer adipiscing
-                                                    elit. Aenean commodo ligula
-                                                    eget dolor.
-                                                </div>
-                                                <i class="fas fa-ellipsis-h"></i>
-                                            </div>
-                                            <div>
-                                                <span>9:32 am</span>
-                                                <a href="">
-                                                    <i class="icon ion-android-more-horizontal"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="az-img-user online">
-                                            <img
-                                                src="https://via.placeholder.com/500x500"
-                                                alt=""
-                                            />
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="msg-body">
-                                                <div class="az-msg-wrapper">
-                                                    Lorem ipsum dolor sit amet,
-                                                    consectetuer adipiscing
-                                                    elit. Aenean commodo ligula
-                                                    eget dolor.
-                                                </div>
-                                                <i class="fas fa-ellipsis-h "></i>
-                                            </div>
-                                            <div class="msg-body">
-                                                <div class="az-msg-wrapper">
-                                                    Lorem ipsum dolor sit amet,
-                                                    consectetuer adipiscing
-                                                    elit. Aenean commodo ligula
-                                                    eget dolor.
-                                                </div>
-                                                <i class="fas fa-ellipsis-h "></i>
-                                            </div>
-                                            <div>
-                                                <span>9:48 am</span>
-                                                <a href="">
-                                                    <i class="icon ion-android-more-horizontal"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <label class="az-chat-time">
-                                        <span>Today</span>
-                                    </label>
-
-                                    <div class="media">
-                                        <div class="az-img-user online">
-                                            <img
-                                                src="https://via.placeholder.com/500x500"
-                                                alt=""
-                                            />
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="msg-body">
-                                                <div class="az-msg-wrapper">
-                                                    Lorem ipsum dolor sit amet,
-                                                    consectetuer adipiscing
-                                                    elit. Aenean commodo ligula
-                                                    eget dolor.
-                                                </div>
-                                                <i class="fas fa-ellipsis-h"></i>
-                                            </div>
-                                            <div class="msg-body">
-                                                <div class="az-msg-wrapper">
-                                                    Nam quam nunc, blandit vel,
-                                                    luctus pulvinar, hendrerit
-                                                    id, lorem. Maecenas nec odio
-                                                    et ante tincidunt tempus.
-                                                    Donec vitae sapien ut libero
-                                                    venenatis faucibus
-                                                </div>
-                                                <i class="fas fa-ellipsis-h"></i>
-                                            </div>
-                                            <div>
-                                                <span>10:12 am</span>
-                                                <a href="">
-                                                    <i class="icon ion-android-more-horizontal"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="az-img-user online">
-                                            <img
-                                                src="https://via.placeholder.com/500x500"
-                                                alt=""
-                                            />
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="msg-body">
-                                                <div class="az-msg-wrapper">
-                                                    Lorem ipsum dolor sit amet,
-                                                    consectetuer adipiscing
-                                                    elit. Aenean commodo ligula
-                                                    eget dolor.
-                                                </div>
-                                                <i class="fas fa-ellipsis-h  cart-popover"></i>
-
-                                                <div
-                                                    id="popover_content_wrapper"
-                                                    style={{ display: 'none' }}
-                                                >
-                                                    <div>
-                                                        <a
-                                                            href="#"
-                                                            class="msg-delete"
-                                                        >
-                                                            Delete
-                                                        </a>
-                                                        <a
-                                                            href="#"
-                                                            class="msg-translate"
-                                                        >
-                                                            Translate
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="az-msg-wrapper p-0">
-                                                <img
-                                                    src="https://via.placeholder.com/500x334"
-                                                    alt=""
-                                                />
-                                            </div>
-                                            <div>
-                                                <span>09:40 am</span>
-                                                <a href="">
-                                                    <i class="icon ion-android-more-horizontal"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+                <div className="az-content-body-posts">
+                    <div id="azChatBody" className="az-chat-body-main">
+                        <Scrollbars style={{ height: '100%' }}>
+                            <div className="az-chat-footer-main">
+                                <div>
+                                    <span
+                                        className="create-post"
+                                        onClick={() => props.toggleCreatePost()}
+                                    >
+                                        <FaRegEdit className="mr-2" />
+                                        Create a post
+                                    </span>
                                 </div>
+                                <nav className="nav">
+                                    <a
+                                        href=""
+                                        className="nav-link"
+                                        data-toggle="tooltip"
+                                        title="Add Photo"
+                                    >
+                                        <FaCamera />
+                                    </a>
+                                    <a
+                                        href=""
+                                        className="nav-link"
+                                        data-toggle="tooltip"
+                                        title="Attach a File"
+                                    >
+                                        <FaPaperclip />
+                                    </a>
+                                    <a
+                                        href=""
+                                        className="nav-link"
+                                        data-toggle="tooltip"
+                                        title="Add Emoticons"
+                                    >
+                                        <FaSmile />
+                                    </a>
+                                    <a href="" className="nav-link">
+                                        <FaEllipsisV />
+                                    </a>
+                                </nav>
                             </div>
+                            <div className="content-inner">{renderPosts()}</div>
                         </Scrollbars>
                     </div>
-
-                    <ul class="list-group profile-roles">
-                        <li class="list-group-item">
-                            <h4 className="mb-0">Roles</h4>
-                        </li>
-
-                        <li class="list-group-item">King of Smart Oak</li>
-                        <li class="list-group-item">King of Smart Oak</li>
-                        <li class="list-group-item">King of Smart Oak</li>
-                        <li class="list-group-item">King of Smart Oak</li>
-                        <li class="list-group-item">King of Smart Oak</li>
-                        <li class="list-group-item">King of Smart Oak</li>
-                        <li class="list-group-item">King of Smart Oak</li>
-                        <li class="list-group-item">King of Smart Oak</li>
-                    </ul>
                 </div>
-            </Scrollbars>
-        );
-    }
-}
+
+                <RolesList />
+            </div>
+        </Scrollbars>
+    );
+};
+const mapStateToProps = (state, ownProps) => {
+    return {
+        posts: state.posts.map(e => e.id === ownProps.match.params.id && e),
+        user: state.users[0]
+    };
+};
+export default connect(
+    mapStateToProps,
+    { fetchUserPosts, fetchUser }
+)(Profile);

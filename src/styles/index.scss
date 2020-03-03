@@ -43,6 +43,7 @@
 @import 'lib/select2';
 //color picker css
 @import 'lib/spectrum';
+@import 'lib/parsley';
 
 /* ############### CUSTOM ELEMENT STYLES ############### */
 
@@ -63,25 +64,26 @@
 
 /* ############### TEMPLATE STYLES ############### */
 
-@import 'template/calendar';
-@import 'template/chat';
-@import 'template/participants';
-@import 'template/info';
-@import 'template/email';
-@import 'template/profile';
-@import 'template/signin';
-@import 'template/signup';
-@import 'template/roles';
-@import 'template/notification';
-@import 'template/acc-settings';
-@import 'template/acc-edit';
-@import 'template/sms';
-@import 'template/disks';
-@import 'template/voiceChat';
-@import 'template/videoChat';
+@import 'components/calendar';
+@import 'components/chat';
+@import 'components/participants';
+@import 'components/info';
+@import 'components/email';
+@import 'components/profile';
+@import 'components/signin';
+@import 'components/signup';
+@import 'components/roles';
+@import 'components/notification';
+@import 'components/acc-settings';
+@import 'components/acc-edit';
+@import 'components/sms';
+@import 'components/disks';
+@import 'components/voiceChat';
+@import 'components/videoChat';
 
-@import 'template/small-chat';
+@import 'components/small-chat';
 
 /* ############### DASHBOARD STYLES ############### */
 
-@import 'template/main-page';
+@import 'components/main-page';
+@import 'common/message';

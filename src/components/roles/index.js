@@ -4,11 +4,11 @@ import classNames from 'classnames';
 import { FaPlus } from 'react-icons/fa';
 import axios from 'axios';
 import Spinner from '../common/Spinner';
-import Navigation from '../sidebar/Navigation';
+import Navigation from '../sidebar/Links';
 
 import Item from './Item';
 import Edit from './Edit';
-
+//todo
 export default class Roles extends Component {
     state = {
         color: '#607d8b',
@@ -31,9 +31,6 @@ export default class Roles extends Component {
 
     onColorChange = color => {
         console.log(color);
-        // this.setState({
-        //     color: color.hex
-        // });
     };
 
     componentDidMount() {

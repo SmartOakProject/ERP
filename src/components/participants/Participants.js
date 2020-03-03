@@ -15,12 +15,11 @@ import {
     TiCameraOutline
 } from 'react-icons/ti';
 
-export default function Participants() {
+const Participants = () => {
     return (
         <div class="az-content-body participants az-content-body-show">
             <div class="az-content-left az-content-left-contacts">
                 <h2 class="az-content-title mb-3">Contacts</h2>
-
                 <nav class="nav az-nav-line az-nav-line-chat">
                     <a href="" data-toggle="tab" class="nav-link active">
                         All Contacts
@@ -164,4 +163,5 @@ export default function Participants() {
             </Scrollbars>
         </div>
     );
-}
+};
+export default Participants;
