@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import { FaRegTrashAlt, FaDotCircle } from 'react-icons/fa';
 
 const Notification = ({ text, data }) => {
@@ -20,5 +20,10 @@ const Notification = ({ text, data }) => {
             </div>
         </div>
     );
+};
+
+Notification.propTypes = {
+    text: PropTypes.string.isRequired,
+    data: PropTypes.string.isRequired,
 };
 export default Notification;

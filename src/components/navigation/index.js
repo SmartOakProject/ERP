@@ -1,10 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import Notification from './Notification';
-import { toggleSidebar, toggleMainChat } from '../../actions/index';
-import { connect } from 'react-redux';
-import logo from '../../img/neur.svg';
-
 import {
     FaSearch,
     FaUser,
@@ -12,13 +7,30 @@ import {
     FaEdit,
     FaArrowLeft,
     FaRegBell,
-    FaRegComments
+    FaRegComments,
 } from 'react-icons/fa';
-
+import { connect } from 'react-redux';
 import classNames from 'classnames';
+
+import Notification from './Notification';
+import { toggleSidebar, toggleMainChat } from 'actions/index';
+import logo from 'img/neur.svg';
+
 const Navigation = props => {
     const [isNotificationOpen, setIsNotificationOpen] = useState(false);
     const [isAvatarOpen, setIsAvatarOpen] = useState(false);
+
+    const notificationRef = useRef();
+    const avatarRef = useRef();
+
+    const handleClickOutside = event => {
+        if (notificationRef && !notificationRef.current.contains(event.target)) {
+            setIsNotificationOpen(false);
+        }
+        if (avatarRef && !avatarRef.current.contains(event.target)) {
+            setIsAvatarOpen(false);
+        }
+    };
 
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);
@@ -26,21 +38,6 @@ const Navigation = props => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
-
-    const notificationRef = useRef();
-    const avatarRef = useRef();
-
-    const handleClickOutside = event => {
-        if (
-            notificationRef &&
-            !notificationRef.current.contains(event.target)
-        ) {
-            setIsNotificationOpen(false);
-        }
-        if (avatarRef && !avatarRef.current.contains(event.target)) {
-            setIsAvatarOpen(false);
-        }
-    };
 
     const onSidebarButtonClick = () => {
         props.toggleSidebar();
@@ -57,11 +54,7 @@ const Navigation = props => {
                             />
                         ) : (
                             <Link to="/">
-                                <img
-                                    src={logo}
-                                    style={{ width: '140px' }}
-                                    alt=""
-                                />
+                                <img src={logo} style={{ width: '140px' }} alt="" />
                             </Link>
                         )
                     ) : null}
@@ -85,7 +78,7 @@ const Navigation = props => {
                         className="form-control"
                         placeholder="Search for anything..."
                     />
-                    <button className="btn">
+                    <button type="button" className="btn">
                         <FaSearch />
                     </button>
                 </div>
@@ -96,17 +89,12 @@ const Navigation = props => {
                         </Link>
                     </div>
                     <div
-                        className={classNames(
-                            'dropdown az-header-notification',
-                            {
-                                show: isNotificationOpen
-                            }
-                        )}
+                        className={classNames('dropdown az-header-notification', {
+                            show: isNotificationOpen,
+                        })}
                     >
                         <a
-                            onClick={() =>
-                                setIsNotificationOpen(!isNotificationOpen)
-                            }
+                            onClick={() => setIsNotificationOpen(!isNotificationOpen)}
                             className="new"
                         >
                             <FaRegBell />
@@ -114,19 +102,11 @@ const Navigation = props => {
                         <div ref={notificationRef} className="dropdown-menu">
                             <div className="az-dropdown-header d-sm-none">
                                 <a className="az-header-arrow">
-                                    <FaArrowLeft
-                                        onClick={() =>
-                                            setIsNotificationOpen(false)
-                                        }
-                                    />
+                                    <FaArrowLeft onClick={() => setIsNotificationOpen(false)} />
                                 </a>
                             </div>
-                            <h6 className="az-notification-title">
-                                Notifications
-                            </h6>
-                            <p className="az-notification-text">
-                                You have 2 unread notification
-                            </p>
+                            <h6 className="az-notification-title">Notifications</h6>
+                            <p className="az-notification-text">You have 2 unread notification</p>
                             <div className="az-notification-list">
                                 <Notification
                                     text="Althea Cabardo just created a new blog postqwqwq"
@@ -146,15 +126,13 @@ const Navigation = props => {
                                 />
                             </div>
                             <div className="dropdown-footer">
-                                <Link to="/notification">
-                                    View All Notifications
-                                </Link>
+                                <Link to="/notification">View All Notifications</Link>
                             </div>
                         </div>
                     </div>
                     <div
                         className={classNames('dropdown az-profile-menu', {
-                            show: isAvatarOpen
+                            show: isAvatarOpen,
                         })}
                     >
                         <a className="az-img-user-post">
@@ -167,17 +145,12 @@ const Navigation = props => {
                         <div ref={avatarRef} className="dropdown-menu">
                             <div className="az-dropdown-header d-sm-none">
                                 <a className="az-header-arrow">
-                                    <FaArrowLeft
-                                        onClick={() => setIsAvatarOpen(false)}
-                                    />
+                                    <FaArrowLeft onClick={() => setIsAvatarOpen(false)} />
                                 </a>
                             </div>
                             <div className="az-header-profile">
                                 <div className="az-img-user">
-                                    <img
-                                        src="https://via.placeholder.com/500x500"
-                                        alt=""
-                                    />
+                                    <img src="https://via.placeholder.com/500x500" alt="" />
                                 </div>
                                 <h6>Aziana Pechon</h6>
                                 <span>Premium Member</span>
@@ -216,7 +189,4 @@ const Navigation = props => {
 const mapStateToProps = state => {
     return state;
 };
-export default connect(
-    mapStateToProps,
-    { toggleSidebar, toggleMainChat }
-)(Navigation);
+export default connect(mapStateToProps, { toggleSidebar, toggleMainChat })(Navigation);

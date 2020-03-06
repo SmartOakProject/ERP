@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { Link } from 'react-router-dom';
-import Message from '../common/Message';
+import PropTypes from 'prop-types';
 import {
     FaCamera,
     FaPaperclip,
@@ -10,9 +10,11 @@ import {
     FaRegPaperPlane,
     FaVideo,
     FaRegFileAlt,
-    FaPhone
+    FaPhone,
 } from 'react-icons/fa';
-const ChatBody = props => {
+import Message from 'components/common/Message';
+
+const ChatBody = ({ toggleFiles }) => {
     return (
         <>
             <div className="az-chat-header">
@@ -24,14 +26,14 @@ const ChatBody = props => {
                     <small>Last seen: 2 minutes ago</small>
                 </div>
                 <nav className="nav">
-                    <Link class="nav-link" to="/main/voiceChat">
+                    <Link className="nav-link" to="/main/voiceChat">
                         <FaPhone />
                     </Link>
-                    <Link class="nav-link" to="/main/videoChat">
+                    <Link className="nav-link" to="/main/videoChat">
                         <FaVideo />
                     </Link>
                     <span className="nav-link">
-                        <FaRegFileAlt onClick={() => props.toggleFiles(true)} />
+                        <FaRegFileAlt onClick={() => toggleFiles(true)} />
                     </span>
                 </nav>
             </div>
@@ -46,10 +48,7 @@ const ChatBody = props => {
                         <Message imgSrc="https://via.placeholder.com/500x337" />
                         <Message text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus autem ratione, commodi totam tempore excepturi error distinctio consectetur nam ea repellendus suscipit, sapiente aperiam necessitatibus aliquid laboriosam porro delectus nihil!" />
 
-                        <Message
-                            imgSrc="https://via.placeholder.com/500x337"
-                            reversed
-                        />
+                        <Message imgSrc="https://via.placeholder.com/500x337" reversed />
                         <Message
                             text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus autem ratione, commodi totam tempore excepturi error distinctio consectetur nam ea repellendus suscipit, sapiente aperiam necessitatibus aliquid laboriosam porro delectus nihil!"
                             reversed
@@ -58,47 +57,34 @@ const ChatBody = props => {
                 </div>
             </Scrollbars>
 
-            <div class="az-chat-footer">
-                <nav class="nav">
-                    <a
-                        href=""
-                        class="nav-link"
-                        data-toggle="tooltip"
-                        title="Add Photo"
-                    >
+            <div className="az-chat-footer">
+                <nav className="nav">
+                    <a href="" className="nav-link" data-toggle="tooltip" title="Add Photo">
                         <FaCamera />
                     </a>
-                    <a
-                        href=""
-                        class="nav-link"
-                        data-toggle="tooltip"
-                        title="Attach a File"
-                    >
+                    <a href="" className="nav-link" data-toggle="tooltip" title="Attach a File">
                         <FaPaperclip />
                     </a>
-                    <a
-                        href=""
-                        class="nav-link"
-                        data-toggle="tooltip"
-                        title="Add Emoticons"
-                    >
+                    <a href="" className="nav-link" data-toggle="tooltip" title="Add Emoticons">
                         <FaSmile />
                     </a>
-                    <a href="" class="nav-link">
+                    <a href="" className="nav-link">
                         <FaEllipsisV />
                     </a>
                 </nav>
                 <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     placeholder="Type your message here..."
                 />
-                <a href="" class="az-msg-send">
+                <a href="" className="az-msg-send">
                     <FaRegPaperPlane />
                 </a>
             </div>
         </>
     );
 };
-
+ChatBody.propTypes = {
+    toggleFiles: PropTypes.func,
+};
 export default ChatBody;

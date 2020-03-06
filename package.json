@@ -4,10 +4,6 @@
     "private": true,
     "homepage": "https://johnywojtek.github.io/ErpReact/",
     "dependencies": {
-        "@fortawesome/fontawesome-svg-core": "^1.2.22",
-        "@fortawesome/free-regular-svg-icons": "^5.10.2",
-        "@fortawesome/free-solid-svg-icons": "^5.10.2",
-        "@fortawesome/react-fontawesome": "^0.1.4",
         "@fullcalendar/core": "^4.3.1",
         "@fullcalendar/daygrid": "^4.3.0",
         "@fullcalendar/interaction": "^4.3.0",
@@ -75,9 +71,14 @@
         ]
     },
     "devDependencies": {
-        "eslint-config-prettier": "^6.2.0",
+        "eslint": "^6.1.0",
+        "eslint-config-airbnb": "^18.0.1",
+        "eslint-config-prettier": "^6.10.0",
+        "eslint-plugin-import": "^2.20.1",
+        "eslint-plugin-jsx-a11y": "^6.2.3",
         "eslint-plugin-prettier": "^3.1.0",
-        "eslint-plugin-react-hooks": "^2.0.1",
-        "prettier": "^1.18.2"
+        "eslint-plugin-react": "^7.18.3",
+        "eslint-plugin-react-hooks": "^1.7.0",
+        "prettier": "^1.19.1"
     }
 }

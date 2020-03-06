@@ -17,17 +17,17 @@ import {
     TiTag,
     TiArrowRight,
     TiArrowLeft,
-    TiPlus
+    TiPlus,
 } from 'react-icons/ti';
 import { IoIosClose } from 'react-icons/io';
-
+// toDo
 export default class Email extends React.Component {
     state = { view: false, compose: false };
 
     toggleInbox = () => {
         if (window.innerWidth < 1000) {
             this.setState(prevState => ({
-                view: !prevState.view
+                view: !prevState.view,
             }));
         }
     };
@@ -60,7 +60,7 @@ export default class Email extends React.Component {
         return (
             <div
                 className={classNames('az-content-body content-padding', {
-                    'inbox-show': this.state.view
+                    'inbox-show': this.state.view,
                 })}
             >
                 <div className="az-content-left-mail">
@@ -75,68 +75,42 @@ export default class Email extends React.Component {
                     <Scrollbars style={{ height: '91%' }}>
                         <div className="az-mail-menu">
                             <nav className="nav az-nav-column">
-                                <a
-                                    onClick={this.toggleInbox}
-                                    className="nav-link active"
-                                >
+                                <a onClick={this.toggleInbox} className="nav-link active">
                                     <TiMail className="typcn" /> Inbox
                                     <span>20</span>
                                 </a>
-                                <a
-                                    onClick={this.toggleInbox}
-                                    className="nav-link active"
-                                >
+                                <a onClick={this.toggleInbox} className="nav-link active">
                                     <TiMail /> Inbox
                                     <span>20</span>
                                 </a>
-                                <a
-                                    onClick={this.toggleInbox}
-                                    className="nav-link"
-                                >
+                                <a onClick={this.toggleInbox} className="nav-link">
                                     <TiStarOutline /> Starred
                                     <span>3</span>
                                 </a>
-                                <a
-                                    onClick={this.toggleInbox}
-                                    className="nav-link"
-                                >
+                                <a onClick={this.toggleInbox} className="nav-link">
                                     <TiBookmark /> Important
                                     <span>10</span>
                                 </a>
-                                <a
-                                    onClick={this.toggleInbox}
-                                    className="nav-link"
-                                >
+                                <a onClick={this.toggleInbox} className="nav-link">
                                     <TiArrowForwardOutline />
                                     Sent Mail
                                     <span>8</span>
                                 </a>
-                                <a
-                                    onClick={this.toggleInbox}
-                                    className="nav-link"
-                                >
+                                <a onClick={this.toggleInbox} className="nav-link">
                                     <TiPen /> Drafts
                                     <span>15</span>
                                 </a>
-                                <a
-                                    onClick={this.toggleInbox}
-                                    className="nav-link"
-                                >
+                                <a onClick={this.toggleInbox} className="nav-link">
                                     <TiCancelOutline /> Spam
                                     <span>128</span>
                                 </a>
-                                <a
-                                    onClick={this.toggleInbox}
-                                    className="nav-link"
-                                >
+                                <a onClick={this.toggleInbox} className="nav-link">
                                     <TiTrash /> Trash
                                     <span>6</span>
                                 </a>
                             </nav>
 
-                            <label className="az-content-label az-content-label-sm">
-                                Label
-                            </label>
+                            <label className="az-content-label az-content-label-sm">Label</label>
                             <nav className="nav az-nav-column">
                                 <a href="#" className="nav-link">
                                     <TiFolder /> Project A
@@ -152,9 +126,7 @@ export default class Email extends React.Component {
                                 </a>
                             </nav>
 
-                            <label className="az-content-label az-content-label-sm">
-                                Mails
-                            </label>
+                            <label className="az-content-label az-content-label-sm">Mails</label>
                             <nav className="nav az-nav-column">
                                 <a href="#" className="nav-link">
                                     lucasdabraowski@gmail.com <span>221</span>
@@ -173,10 +145,7 @@ export default class Email extends React.Component {
                     </Scrollbars>
                 </div>
                 <div className={classNames('az-content-body-mail')}>
-                    <TiArrowLeft
-                        onClick={this.toggleInbox}
-                        className="arrow-emial"
-                    />
+                    <TiArrowLeft onClick={this.toggleInbox} className="arrow-emial" />
                     <div className="az-mail-header">
                         <div>
                             <div>
@@ -193,10 +162,7 @@ export default class Email extends React.Component {
                                 >
                                     <TiChevronLeft />
                                 </button>
-                                <button
-                                    type="button"
-                                    className="btn btn-outline-secondary"
-                                >
+                                <button type="button" className="btn btn-outline-secondary">
                                     <TiChevronRight />
                                 </button>
                             </div>
@@ -209,9 +175,7 @@ export default class Email extends React.Component {
                         </label>
                         <div className="btn-group">
                             <button className="btn btn-light">
-                                <TiArrowSync
-                                    style={{ width: '24px', height: '24px' }}
-                                />
+                                <TiArrowSync style={{ width: '24px', height: '24px' }} />
                             </button>
                             <button className="btn btn-light disabled">
                                 <TiTrash className="ask-user" />
@@ -238,15 +202,12 @@ export default class Email extends React.Component {
                 </div>
                 <div
                     className={classNames('az-mail-compose', {
-                        'd-block': this.state.compose
+                        'd-block': this.state.compose,
                     })}
                 >
                     <div>
                         <div class="container">
-                            <div
-                                ref={this.setWrapperRef}
-                                class="az-mail-compose-box"
-                            >
+                            <div ref={this.setWrapperRef} class="az-mail-compose-box">
                                 <div class="az-mail-compose-header">
                                     <span>New Message</span>
                                     <nav class="nav">
@@ -256,9 +217,7 @@ export default class Email extends React.Component {
                                         <a href="" class="nav-link">
                                             <i class="fas fa-compress"></i>
                                         </a>
-                                        <IoIosClose
-                                            onClick={this.onCloseClick}
-                                        />
+                                        <IoIosClose onClick={this.onCloseClick} />
                                     </nav>
                                 </div>
                                 <div class="az-mail-compose-body">
@@ -273,14 +232,9 @@ export default class Email extends React.Component {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label">
-                                            Subject
-                                        </label>
+                                        <label class="form-label">Subject</label>
                                         <div>
-                                            <input
-                                                type="text"
-                                                class="form-control"
-                                            />
+                                            <input type="text" class="form-control" />
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -333,9 +287,7 @@ export default class Email extends React.Component {
                                                 <i class="far fa-trash-alt"></i>
                                             </a>
                                         </nav>
-                                        <button class="btn btn-primary">
-                                            Send
-                                        </button>
+                                        <button class="btn btn-primary">Send</button>
                                     </div>
                                 </div>
                             </div>

@@ -1,5 +1,7 @@
 import React from 'react';
-import Navigation from '../components/navigation';
+import PropTypes from 'prop-types';
+import Navigation from 'components/navigation';
+
 const FullWidthLayout = ({ children }) => {
     return (
         <div className="content-full">
@@ -7,6 +9,10 @@ const FullWidthLayout = ({ children }) => {
             {children}
         </div>
     );
+};
+
+FullWidthLayout.propTypes = {
+    children: PropTypes.element,
 };
 
 export default FullWidthLayout;

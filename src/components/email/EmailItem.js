@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EmailItem = props => {
+const EmailItem = () => {
     return (
         <div className="az-mail-item unread">
             <div className="az-mail-checkbox">
@@ -10,7 +10,7 @@ const EmailItem = props => {
                 </label>
             </div>
             <div className="az-mail-star">
-                <i className="typcn typcn-star"></i>
+                <i className="typcn typcn-star" />
             </div>
             <div className="az-img-user">
                 <img src="https://via.placeholder.com/500x500" alt="" />
@@ -20,13 +20,13 @@ const EmailItem = props => {
                 <div className="az-mail-subject">
                     <strong>Someone who believes in you</strong>
                     <span>
-                        enean commodo li gula eget dolor cum socia eget dolor
-                        enean commodo li gula eget dolor cum socia eget dolor
+                        enean commodo li gula eget dolor cum socia eget dolor enean commodo li gula
+                        eget dolor cum socia eget dolor
                     </span>
                 </div>
             </div>
             <div className="az-mail-attachment">
-                <i className="typcn typcn-attachment"></i>
+                <i className="typcn typcn-attachment" />
             </div>
             <div className="az-mail-date">11:30am</div>
         </div>

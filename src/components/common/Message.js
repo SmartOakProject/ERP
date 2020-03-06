@@ -1,12 +1,13 @@
 import React from 'react';
 import Linkify from 'react-linkify';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 const Message = ({ text, reversed, imgSrc }) => {
     return (
         <div
             className={classNames('message', {
-                'flex-row-reverse': reversed
+                'flex-row-reverse': reversed,
             })}
         >
             <div className="az-img-user-post">
@@ -17,11 +18,7 @@ const Message = ({ text, reversed, imgSrc }) => {
                 <div className="msg-body">
                     {imgSrc ? (
                         <div className="az-msg-wrapper p-0">
-                            <img
-                                src={imgSrc}
-                                alt=""
-                                className="image-message"
-                            />
+                            <img src={imgSrc} alt="" className="image-message" />
                         </div>
                     ) : (
                         <div className="az-msg-wrapper">
@@ -37,5 +34,9 @@ const Message = ({ text, reversed, imgSrc }) => {
         </div>
     );
 };
-
+Message.propTypes = {
+    text: PropTypes.string.isRequired,
+    reversed: PropTypes.bool,
+    imgSrc: PropTypes.string,
+};
 export default Message;

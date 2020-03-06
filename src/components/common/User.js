@@ -1,8 +1,8 @@
 import React from 'react';
-
-import { FaTrash, FaDotCircle } from 'react-icons/fa';
-import { openFastChat, toggleMainChat } from '../../actions/index';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { FaTrash, FaDotCircle } from 'react-icons/fa';
+import { openFastChat, toggleMainChat } from 'actions/index';
 
 // az-img-user online = true // green online circle
 // media new=true //red circle
@@ -15,17 +15,17 @@ const User = ({
     email,
     icons,
     openFastChat,
-    activeUser,
+    activeUserId,
     isChat,
-    toggleMainChat
+    toggleMainChat,
 }) => {
-    const className = activeUser === id ? 'media selected' : 'media';
+    const className = activeUserId === id ? 'media selected' : 'media';
 
     const onUserClick = () => {
         if (isChat) {
             toggleMainChat();
         } else {
-            //isMainPage
+            // isMainPage
             openFastChat(id);
         }
     };
@@ -37,7 +37,6 @@ const User = ({
                 {/* <span>2</span> new messages number when new = true */}
             </div>
             <div className="media-body">
-                <h6 className="mb-0"></h6>
                 <div className="media-contact-name">
                     <span>{name}</span>
                     <span>{`${date} days`}</span>
@@ -50,17 +49,26 @@ const User = ({
                         ''
                     )}
                 </div>
-                <p>{email ? email : null}</p>
+                <p>{email}</p>
             </div>
         </div>
     );
 };
+User.propTypes = {
+    id: PropTypes.number.isRequired,
+    imgSrc: PropTypes.string,
+    name: PropTypes.string,
+    date: PropTypes.number,
+    email: PropTypes.string,
+    icons: PropTypes.bool,
+    openFastChat: PropTypes.func,
+    activeUserId: PropTypes.number,
+    isChat: PropTypes.bool,
+    toggleMainChat: PropTypes.func,
+};
 const mapStateToProps = state => {
     return {
-        activeUser: state.fastChat.idUserSelected
+        activeUserId: state.fastChat.idUserSelected,
     };
 };
-export default connect(
-    mapStateToProps,
-    { openFastChat, toggleMainChat }
-)(User);
+export default connect(mapStateToProps, { openFastChat, toggleMainChat })(User);

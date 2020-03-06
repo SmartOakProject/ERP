@@ -1,5 +1,5 @@
-import jsonPlaceholder from '../api/jsonPlaceholder';
-import toRemoveApi from '../api/toRemoveApi';
+import jsonPlaceholder from 'api/jsonPlaceholder';
+import toRemoveApi from 'api/toRemoveApi';
 import * as actionTypes from './types';
 import _ from 'lodash';
 
@@ -46,7 +46,7 @@ export const fetchComments = id => async (dispatch, getState) => {
 
     dispatch({
         type: actionTypes.FETCH_COMMENTS,
-        payload: { data: response.data, id }
+        payload: { data: response.data, id },
     });
 };
 export const fetchPosts = () => async (dispatch, getState) => {
@@ -60,13 +60,13 @@ export const fetchUserPosts = id => async (dispatch, getState) => {
     dispatch({ type: actionTypes.FETCH_USER_POSTS, payload: response.data });
 };
 export const toggleCreatePost = () => ({
-    type: actionTypes.TOGGLE_CREATE_POST
+    type: actionTypes.TOGGLE_CREATE_POST,
 });
 
 export const openFastChat = id => {
     return {
         type: actionTypes.OPEN_FAST_CHAT,
-        payload: id
+        payload: id,
     };
 };
 export const toggleSidebar = () => ({ type: actionTypes.TOGGLE_SIDEBAR });

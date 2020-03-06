@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { connect } from 'react-redux';
-import { fetchUsers } from '../../actions/index';
+import { fetchUsers } from 'actions/index';
 
 import Notification from './Notification';
-import Spinner from '../common/Spinner';
-import User from '../common/User';
-import FastChat from '../common/FastChat';
+import Spinner from 'components/common/Spinner';
+import User from 'components/common/User';
+import FastChat from 'components/common/FastChat';
 
 const Notifications = props => {
     useEffect(() => {
@@ -38,10 +38,7 @@ const Notifications = props => {
                         </div>
                     </Scrollbars>
                     <FastChat />
-                    <div
-                        class=" az-content-right-chat-main"
-                        style={{ width: '29vw' }}
-                    >
+                    <div class=" az-content-right-chat-main" style={{ width: '29vw' }}>
                         <Scrollbars style={{ height: '98%' }}>
                             <div id="azChatList" class="az-chat-list">
                                 {props.users ? (
@@ -72,7 +69,4 @@ const Notifications = props => {
 const mapStateToProps = state => {
     return state;
 };
-export default connect(
-    mapStateToProps,
-    { fetchUsers }
-)(Notifications);
+export default connect(mapStateToProps, { fetchUsers })(Notifications);

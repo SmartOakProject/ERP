@@ -1,16 +1,7 @@
 import React, { useEffect } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { connect } from 'react-redux';
-import Post from './mainPage/Post';
-import Spinner from './common/Spinner';
-import { fetchUserPosts, fetchUser } from '../actions/index';
-import RolesList from './common/RolesList';
-import {
-    IoLogoGithub,
-    IoLogoTwitter,
-    IoLogoLinkedin,
-    IoMdLink
-} from 'react-icons/io';
+import { IoLogoGithub, IoLogoTwitter, IoLogoLinkedin, IoMdLink } from 'react-icons/io';
 import {
     FaCamera,
     FaPaperclip,
@@ -19,8 +10,12 @@ import {
     FaRegPaperPlane,
     FaRegEdit,
     FaPhone,
-    FaVideo
+    FaVideo,
 } from 'react-icons/fa';
+import Post from 'components/mainPage/Post';
+import Spinner from 'components/common/Spinner';
+import { fetchUserPosts, fetchUser } from 'actions/index';
+import RolesList from 'components/common/RolesList';
 
 const Profile = props => {
     useEffect(() => {
@@ -56,19 +51,12 @@ const Profile = props => {
                 <div className="az-content-left-profile">
                     <div className="az-profile-overview">
                         <div className="az-img-user">
-                            <img
-                                src="https://via.placeholder.com/500x500"
-                                alt=""
-                            />
+                            <img src="https://via.placeholder.com/500x500" alt="" />
                         </div>
                         <div className="d-flex justify-content-between mb-2">
                             <div>
-                                <h5 className="az-profile-name">
-                                    {props.user.name}
-                                </h5>
-                                <p className="az-profile-name-text">
-                                    {props.user.company.bs}
-                                </p>
+                                <h5 className="az-profile-name">{props.user.name}</h5>
+                                <p className="az-profile-name-text">{props.user.company.bs}</p>
                             </div>
                             <div className="btn-icon-list">
                                 <button className="btn-indigo btn-icon">
@@ -100,12 +88,8 @@ const Profile = props => {
                                 <IoMdLink />
                             </a>
                         </div>
-                        <label className="az-content-label mt-4 mb-2">
-                            Description
-                        </label>
-                        <div className="az-profile-bio mt-3">
-                            {props.user.company.catchPhrase}
-                        </div>
+                        <label className="az-content-label mt-4 mb-2">Description</label>
+                        <div className="az-profile-bio mt-3">{props.user.company.catchPhrase}</div>
                     </div>
                 </div>
 
@@ -165,10 +149,7 @@ const Profile = props => {
 const mapStateToProps = (state, ownProps) => {
     return {
         posts: state.posts.map(e => e.id === ownProps.match.params.id && e),
-        user: state.users[0]
+        user: state.users[0],
     };
 };
-export default connect(
-    mapStateToProps,
-    { fetchUserPosts, fetchUser }
-)(Profile);
+export default connect(mapStateToProps, { fetchUserPosts, fetchUser })(Profile);

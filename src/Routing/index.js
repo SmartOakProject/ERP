@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import SignIn from '../components/SignIn';
 import Participants from '../components/participants/Participants';
@@ -23,60 +23,61 @@ import AppRoute from './AppRoute';
 import FullWidthLayout from './FullWidthLayout';
 import SidebarLayout from './SidebarLayout';
 import history from '../history';
+
 const routes = [
     {
         path: '/',
         exact: true,
-        main: () => <MainPage />
+        main: () => <MainPage />,
     },
     {
         path: '/accSettings',
-        main: () => <AccSettings />
+        main: () => <AccSettings />,
     },
     {
         path: '/calendar',
-        main: () => <Calendar />
+        main: () => <Calendar />,
     },
     {
         path: '/email',
-        main: () => <Email />
+        main: () => <Email />,
     },
     {
         path: '/participants',
-        main: () => <Participants />
+        main: () => <Participants />,
     },
     {
         path: '/roles',
-        main: () => <Roles />
+        main: () => <Roles />,
     },
     {
         path: '/disks',
-        main: () => <Disks />
+        main: () => <Disks />,
     },
     {
         path: '/sms',
-        main: () => <Sms />
+        main: () => <Sms />,
     },
     {
         path: '/info',
-        main: () => <Info />
+        main: () => <Info />,
     },
     {
         path: '/account-settings',
-        main: () => <AccSettings />
+        main: () => <AccSettings />,
     },
     {
         path: '/voiceChat',
-        main: () => <VoiceChat />
+        main: () => <VoiceChat />,
     },
     {
         path: '/videoChat',
-        main: () => <VideoChat />
-    }
+        main: () => <VideoChat />,
+    },
 ];
 const Routing = () => {
     return (
-        <Router history={history}>
+        <BrowserRouter history={history}>
             <Switch>
                 {routes.map((route, index) => (
                     <AppRoute
@@ -87,25 +88,13 @@ const Routing = () => {
                         layout={SidebarLayout}
                     />
                 ))}
-                <AppRoute
-                    path="/chat"
-                    component={Chat}
-                    layout={FullWidthLayout}
-                />
-                <AppRoute
-                    path="/profile/:id"
-                    component={Profile}
-                    layout={FullWidthLayout}
-                />
-                <AppRoute
-                    path="/notification"
-                    component={Notifications}
-                    layout={FullWidthLayout}
-                />
+                <AppRoute path="/chat" component={Chat} layout={FullWidthLayout} />
+                <AppRoute path="/profile/:id" component={Profile} layout={FullWidthLayout} />
+                <AppRoute path="/notification" component={Notifications} layout={FullWidthLayout} />
                 <Route path="/signin" component={SignIn} />
                 <Route path="/signup" component={SignUp} />
             </Switch>
-        </Router>
+        </BrowserRouter>
     );
 };
 

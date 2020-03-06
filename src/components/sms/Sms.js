@@ -9,16 +9,16 @@ const Checkbox = props => {
     const [checkbox, setCheckbox] = useState(false);
 
     return (
-        <div class="form-check">
+        <div className="form-check">
             <input
-                class="form-check-input"
+                className="form-check-input"
                 type="checkbox"
                 value=""
                 checked={checkbox}
                 onChange={() => setCheckbox(!checkbox)}
                 id="defaultCheck1"
             />
-            <label class="form-check-label" for="defaultCheck1">
+            <label className="form-check-label" for="defaultCheck1">
                 {props.text}
             </label>
         </div>
@@ -31,94 +31,86 @@ const Sms = () => {
         setStartDate();
     };
     const selectRowProp = {
-        mode: 'checkbox' // or checkbox
+        mode: 'checkbox', // or checkbox
     };
     const products = [
         {
             id: 1,
             name: 'NeuroN szkolenia',
-            acc: 'Main Account'
+            acc: 'Main Account',
         },
         {
             id: 2,
             name: 'NeuroN szkolenia',
-            acc: 'Main Account'
+            acc: 'Main Account',
         },
         {
             id: 3,
             name: 'NeuroN szkolenia',
-            acc: 'Main Account'
+            acc: 'Main Account',
         },
         {
             id: 4,
             name: 'NeuroN szkolenia',
-            acc: 'Main Account'
+            acc: 'Main Account',
         },
         {
             id: 5,
             name: 'NeuroN szkolenia',
-            acc: 'Main Account'
+            acc: 'Main Account',
         },
         {
             id: 6,
             name: 'NeuroN szkolenia',
-            acc: 'Main Account'
+            acc: 'Main Account',
         },
         {
             id: 7,
             name: 'NeuroN szkolenia',
-            acc: 'Main Account'
-        }
+            acc: 'Main Account',
+        },
     ];
     return (
         <div className="sms">
             <Scrollbars style={{ height: '90%' }}>
                 <form id="contact-form" role="form">
-                    {/* <div class="messages">dasdasdas</div> */}
+                    {/* <div className="messages">dasdasdas</div> */}
 
-                    <div class="controls">
-                        <div class="container">
-                            <div class="row"></div>
-                            <div class="row mt-md-0 mt-3">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="form_message">
-                                            Message *
-                                        </label>
+                    <div className="controls">
+                        <div className="container">
+                            <div className="row"></div>
+                            <div className="row mt-md-0 mt-3">
+                                <div className="col-md-6">
+                                    <div className="form-group">
+                                        <label for="form_message">Message *</label>
                                         <textarea
                                             id="form_message"
                                             name="message"
-                                            class="form-control"
+                                            className="form-control"
                                             rows="4"
                                             required="required"
                                             data-error="Please, leave us a message."
                                         ></textarea>
-                                        <div class="help-block with-errors"></div>
+                                        <div className="help-block with-errors"></div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div className="col-md-6">
                                     <h3>Termin realizacji</h3>
 
                                     <Checkbox text="Natychmiast" />
                                     <Checkbox text="W określonym czasie:" />
                                     <div className="message-time">
-                                        <DatePicker
-                                            selected={startDate}
-                                            onChange={handleChange}
-                                        />
+                                        <DatePicker selected={startDate} onChange={handleChange} />
                                         <Checkbox text="Powtarzaj wysyłkę:" />
 
                                         <div className="message-time-repeat">
                                             Wyślij łącznie
-                                            <input
-                                                type="text"
-                                                className="sms-select"
-                                            />
+                                            <input type="text" className="sms-select" />
                                             wiadomości. Jedna wiadomość co
                                             <select
                                                 id="form_need"
                                                 name="need"
-                                                class="form-control sms-select"
+                                                className="form-control sms-select"
                                                 data-error="Please specify your need."
                                             >
                                                 <option value="1" selected>
@@ -136,26 +128,20 @@ const Sms = () => {
                                             <select
                                                 id="form_need"
                                                 name="need"
-                                                class="form-control sms-select"
+                                                className="form-control sms-select"
                                                 data-error="Please specify your need."
                                             >
-                                                <option value="dni">
-                                                    days
-                                                </option>
-                                                <option value="tygodni">
-                                                    weeks
-                                                </option>
-                                                <option value="miesięcy">
-                                                    months
-                                                </option>
+                                                <option value="dni">days</option>
+                                                <option value="tygodni">weeks</option>
+                                                <option value="miesięcy">months</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div className="col-md-12">
                                     <input
                                         type="submit"
-                                        class="btn btn-success btn-send"
+                                        className="btn btn-success btn-send"
                                         value="Send message"
                                     />
                                 </div>
@@ -163,23 +149,15 @@ const Sms = () => {
                         </div>
                     </div>
                 </form>
-                <div class="container">
+                <div className="container">
                     <div className="row mt-3">
                         <div className="col-md-8">
-                            <BootstrapTable
-                                selectRow={selectRowProp}
-                                data={products}
-                                version="4"
-                            >
+                            <BootstrapTable selectRow={selectRowProp} data={products} version="4">
                                 <TableHeaderColumn isKey dataField="id">
                                     ID
                                 </TableHeaderColumn>
-                                <TableHeaderColumn dataField="name">
-                                    Name
-                                </TableHeaderColumn>
-                                <TableHeaderColumn dataField="acc">
-                                    Account
-                                </TableHeaderColumn>
+                                <TableHeaderColumn dataField="name">Name</TableHeaderColumn>
+                                <TableHeaderColumn dataField="acc">Account</TableHeaderColumn>
                             </BootstrapTable>
                         </div>
                     </div>

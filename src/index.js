@@ -6,19 +6,18 @@ import thunk from 'redux-thunk';
 import reducers from './reducers';
 import Routing from './Routing';
 import './styles/index.css';
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const createStoreWithMiddleware = createStore(
-    reducers,
-    composeEnhancers(applyMiddleware(thunk))
-);
-//off in github pages
+const createStoreWithMiddleware = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
+
+// off in github pages
 // import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
     <Provider store={createStoreWithMiddleware}>
         <Routing />
     </Provider>,
-    document.getElementById('root')
+    document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change

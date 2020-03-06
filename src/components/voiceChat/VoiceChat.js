@@ -1,15 +1,5 @@
 import React from 'react';
-
-import {
-    FaMicrophoneSlash,
-    FaMicrophone,
-    FaVideoSlash,
-    FaCog,
-    FaDesktop
-} from 'react-icons/fa';
-
 import { Scrollbars } from 'react-custom-scrollbars';
-
 import {
     FaPhone,
     FaVideo,
@@ -17,10 +7,15 @@ import {
     FaPaperclip,
     FaSmile,
     FaEllipsisV,
-    FaRegPaperPlane
+    FaRegPaperPlane,
+    FaMicrophoneSlash,
+    FaMicrophone,
+    FaVideoSlash,
+    FaCog,
+    FaDesktop,
 } from 'react-icons/fa';
 
-import Message from '../common/Message';
+import Message from 'components/common/Message';
 
 const VoiceChat = () => {
     return (
@@ -70,10 +65,7 @@ const VoiceChat = () => {
                             <Message imgSrc="https://via.placeholder.com/500x337" />
                             <Message text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus autem ratione, commodi totam tempore excepturi error distinctio consectetur nam ea repellendus suscipit, sapiente aperiam necessitatibus aliquid laboriosam porro delectus nihil!" />
 
-                            <Message
-                                imgSrc="https://via.placeholder.com/500x337"
-                                reversed
-                            />
+                            <Message imgSrc="https://via.placeholder.com/500x337" reversed />
                             <Message
                                 text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus autem ratione, commodi totam tempore excepturi error distinctio consectetur nam ea repellendus suscipit, sapiente aperiam necessitatibus aliquid laboriosam porro delectus nihil!"
                                 reversed
@@ -81,42 +73,27 @@ const VoiceChat = () => {
                         </div>
                     </div>
                 </Scrollbars>
-                <div class="az-chat-footer-main videoChat-footer">
-                    <nav class="nav">
-                        <a
-                            href=""
-                            class="nav-link"
-                            data-toggle="tooltip"
-                            title="Add Photo"
-                        >
+                <div className="az-chat-footer-main videoChat-footer">
+                    <nav className="nav">
+                        <a href="" className="nav-link" data-toggle="tooltip" title="Add Photo">
                             <FaCamera />
                         </a>
-                        <a
-                            href=""
-                            class="nav-link"
-                            data-toggle="tooltip"
-                            title="Attach a File"
-                        >
+                        <a href="" className="nav-link" data-toggle="tooltip" title="Attach a File">
                             <FaPaperclip />
                         </a>
-                        <a
-                            href=""
-                            class="nav-link"
-                            data-toggle="tooltip"
-                            title="Add Emoticons"
-                        >
+                        <a href="" className="nav-link" data-toggle="tooltip" title="Add Emoticons">
                             <FaSmile />
                         </a>
-                        <a href="" class="nav-link">
+                        <a href="" className="nav-link">
                             <FaEllipsisV />
                         </a>
                     </nav>
                     <input
                         type="text"
-                        class="form-control "
+                        className="form-control "
                         placeholder="Type your message here..."
                     />
-                    <a href="" class="az-msg-send">
+                    <a href="" className="az-msg-send">
                         <FaRegPaperPlane />
                     </a>
                 </div>

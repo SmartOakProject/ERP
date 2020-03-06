@@ -4,8 +4,7 @@ import classNames from 'classnames';
 import PanelContent from './PanelContent';
 import Animate from 'rc-animate';
 import shallowEqual from 'shallowequal';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { FaChevronDown } from 'react-icons/fa';
 
 var _createClass = (function() {
     function defineProperties(target, props) {
@@ -30,7 +29,7 @@ function _defineProperty(obj, key, value) {
             value: value,
             enumerable: true,
             configurable: true,
-            writable: true
+            writable: true,
         });
     } else {
         obj[key] = value;
@@ -46,20 +45,15 @@ function _classCallCheck(instance, Constructor) {
 
 function _possibleConstructorReturn(self, call) {
     if (!self) {
-        throw new ReferenceError(
-            "this hasn't been initialised - super() hasn't been called"
-        );
+        throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
     }
-    return call && (typeof call === 'object' || typeof call === 'function')
-        ? call
-        : self;
+    return call && (typeof call === 'object' || typeof call === 'function') ? call : self;
 }
 
 function _inherits(subClass, superClass) {
     if (typeof superClass !== 'function' && superClass !== null) {
         throw new TypeError(
-            'Super expression must either be null or a function, not ' +
-                typeof superClass
+            'Super expression must either be null or a function, not ' + typeof superClass,
         );
     }
     subClass.prototype = Object.create(superClass && superClass.prototype, {
@@ -67,8 +61,8 @@ function _inherits(subClass, superClass) {
             value: subClass,
             enumerable: false,
             writable: true,
-            configurable: true
-        }
+            configurable: true,
+        },
     });
     if (superClass)
         Object.setPrototypeOf
@@ -86,40 +80,38 @@ var CollapsePanel = (function(_Component) {
 
         _classCallCheck(this, CollapsePanel);
 
-        for (
-            var _len = arguments.length, args = Array(_len), _key = 0;
-            _key < _len;
-            _key++
-        ) {
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
             args[_key] = arguments[_key];
         }
 
         return (
-            (_ret = ((_temp = ((_this = _possibleConstructorReturn(
-                this,
-                (_ref =
-                    CollapsePanel.__proto__ ||
-                    Object.getPrototypeOf(CollapsePanel)).call.apply(
-                    _ref,
-                    [this].concat(args)
-                )
-            )),
-            _this)),
-            (_this.handleItemClick = function() {
-                var _this$props = _this.props,
-                    onItemClick = _this$props.onItemClick,
-                    panelKey = _this$props.panelKey;
+            (_ret =
+                ((_temp =
+                    ((_this = _possibleConstructorReturn(
+                        this,
+                        (_ref =
+                            CollapsePanel.__proto__ ||
+                            Object.getPrototypeOf(CollapsePanel)).call.apply(
+                            _ref,
+                            [this].concat(args),
+                        ),
+                    )),
+                    _this)),
+                (_this.handleItemClick = function() {
+                    var _this$props = _this.props,
+                        onItemClick = _this$props.onItemClick,
+                        panelKey = _this$props.panelKey;
 
-                if (typeof onItemClick === 'function') {
-                    onItemClick(panelKey);
-                }
-            }),
-            (_this.handleKeyPress = function(e) {
-                if (e.key === 'Enter' || e.keyCode === 13 || e.which === 13) {
-                    _this.handleItemClick();
-                }
-            }),
-            _temp)),
+                    if (typeof onItemClick === 'function') {
+                        onItemClick(panelKey);
+                    }
+                }),
+                (_this.handleKeyPress = function(e) {
+                    if (e.key === 'Enter' || e.keyCode === 13 || e.which === 13) {
+                        _this.handleItemClick();
+                    }
+                }),
+                _temp)),
             _possibleConstructorReturn(_this, _ret)
         );
     }
@@ -129,7 +121,7 @@ var CollapsePanel = (function(_Component) {
             key: 'shouldComponentUpdate',
             value: function shouldComponentUpdate(nextProps) {
                 return !shallowEqual(this.props, nextProps);
-            }
+            },
         },
         {
             key: 'render',
@@ -156,28 +148,18 @@ var CollapsePanel = (function(_Component) {
 
                 var headerCls = classNames(
                     prefixCls + '-header',
-                    _defineProperty({}, headerClass, headerClass)
+                    _defineProperty({}, headerClass, headerClass),
                 );
                 var itemCls = classNames(
                     ((_classNames2 = {}),
                     _defineProperty(_classNames2, prefixCls + '-item', true),
-                    _defineProperty(
-                        _classNames2,
-                        prefixCls + '-item-active',
-                        isActive
-                    ),
-                    _defineProperty(
-                        _classNames2,
-                        prefixCls + '-item-disabled',
-                        disabled
-                    ),
+                    _defineProperty(_classNames2, prefixCls + '-item-active', isActive),
+                    _defineProperty(_classNames2, prefixCls + '-item-disabled', disabled),
                     _classNames2),
-                    className
+                    className,
                 );
 
-                var icon = (
-                    <FontAwesomeIcon id="nav-down-icon" icon={faChevronDown} />
-                );
+                var icon = <FaChevronDown id="nav-down-icon" />;
 
                 return React.createElement(
                     'div',
@@ -190,17 +172,13 @@ var CollapsePanel = (function(_Component) {
                             role: accordion ? 'tab' : 'button',
                             tabIndex: disabled ? -1 : 0,
                             'aria-expanded': '' + isActive,
-                            onKeyPress: this.handleKeyPress
+                            onKeyPress: this.handleKeyPress,
                         },
                         headerIcon,
                         header,
                         icon,
                         extra &&
-                            React.createElement(
-                                'div',
-                                { className: prefixCls + '-extra' },
-                                extra
-                            )
+                            React.createElement('div', { className: prefixCls + '-extra' }, extra),
                     ),
                     React.createElement(
                         Animate,
@@ -208,7 +186,7 @@ var CollapsePanel = (function(_Component) {
                             showProp: 'isActive',
                             exclusive: true,
                             component: '',
-                            animation: this.props.openAnimation
+                            animation: this.props.openAnimation,
                         },
                         React.createElement(
                             PanelContent,
@@ -217,14 +195,14 @@ var CollapsePanel = (function(_Component) {
                                 isActive: isActive,
                                 destroyInactivePanel: destroyInactivePanel,
                                 forceRender: forceRender,
-                                role: accordion ? 'tabpanel' : null
+                                role: accordion ? 'tabpanel' : null,
                             },
-                            children
-                        )
-                    )
+                            children,
+                        ),
+                    ),
                 );
-            }
-        }
+            },
+        },
     ]);
 
     return CollapsePanel;
@@ -236,11 +214,7 @@ CollapsePanel.propTypes = {
     children: PropTypes.any,
     openAnimation: PropTypes.object,
     prefixCls: PropTypes.string,
-    header: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.node
-    ]),
+    header: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.node]),
     headerClass: PropTypes.string,
     showArrow: PropTypes.bool,
     isActive: PropTypes.bool,
@@ -252,7 +226,7 @@ CollapsePanel.propTypes = {
     forceRender: PropTypes.bool,
     expandIcon: PropTypes.func,
     extra: PropTypes.node,
-    panelKey: PropTypes.any
+    panelKey: PropTypes.any,
 };
 
 CollapsePanel.defaultProps = {
@@ -262,7 +236,7 @@ CollapsePanel.defaultProps = {
     onItemClick: function onItemClick() {},
 
     headerClass: '',
-    forceRender: false
+    forceRender: false,
 };
 
 export default CollapsePanel;

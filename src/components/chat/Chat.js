@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from 'react';
 
 import { Scrollbars } from 'react-custom-scrollbars';
-
-import classNames from 'classnames';
-
-import User from '../common/User';
-import Spinner from '../common/Spinner';
-import { fetchActiveUsers } from '../../actions/index';
-
-import userGroup from '../../img/user-group.png';
-import 'rc-tooltip/assets/bootstrap_white.css';
+import { connect } from 'react-redux';
 import { IoIosClose } from 'react-icons/io';
 import { FaRegFileAlt } from 'react-icons/fa';
-import { connect } from 'react-redux';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
+import User from 'components/common/User';
+import Spinner from 'components/common/Spinner';
+import { fetchActiveUsers } from 'actions/index';
+import userGroup from 'img/user-group.png';
+import 'rc-tooltip/assets/bootstrap_white.css';
 import ChatBody from './ChatBody';
 
-const Chat = props => {
+const Chat = ({ fetchActiveUsers, setup, activeUsers }) => {
     const [toggleFile, setToggleFile] = useState(false);
     const [view, setView] = useState('users');
+
     useEffect(() => {
-        props.fetchActiveUsers();
+        fetchActiveUsers();
     }, []);
 
     const toggleFiles = state => {
@@ -30,18 +30,18 @@ const Chat = props => {
             className={classNames(
                 'content-chat ',
                 {
-                    'az-content-body-show': props.setup.isMainChatOpen
+                    'az-content-body-show': setup.isMainChatOpen,
                 },
                 {
-                    'az-content-left-show': toggleFile
-                }
+                    'az-content-left-show': toggleFile,
+                },
             )}
         >
             <div className="az-content-left az-content-left-chat">
                 <nav className="nav az-nav-line az-nav-line-chat">
                     <span
                         className={classNames('nav-link', {
-                            active: view === 'users' ? true : false
+                            active: view === 'users',
                         })}
                         onClick={() => setView('users')}
                     >
@@ -49,7 +49,7 @@ const Chat = props => {
                     </span>
                     <span
                         className={classNames('nav-link ', {
-                            active: view === 'users' ? false : true
+                            active: view !== 'users',
                         })}
                         onClick={() => setView('group')}
                     >
@@ -59,9 +59,9 @@ const Chat = props => {
 
                 <Scrollbars style={{ height: '100%' }}>
                     <div id="azChatList" className="az-chat-list">
-                        {props.activeUsers.length ? (
+                        {activeUsers.length ? (
                             view === 'users' ? (
-                                props.activeUsers.map((e, i) => {
+                                activeUsers.map(e => {
                                     return (
                                         <User
                                             id={e.id}
@@ -75,7 +75,7 @@ const Chat = props => {
                                     );
                                 })
                             ) : (
-                                //todo User Group
+                                // todo User Group
                                 <div className="media">
                                     <div className="az-img-user ">
                                         <img src={userGroup} alt="" />
@@ -83,10 +83,7 @@ const Chat = props => {
                                     </div>
                                     <div className="media-body">
                                         <div className="media-contact-name">
-                                            <span>
-                                                Wojtek John, Michał
-                                                Zsadadasdasdadas
-                                            </span>
+                                            <span>Wojtek John, Michał Zsadadasdasdadas</span>
                                             <span>2 hours</span>
                                         </div>
                                         <p>4 Members</p>
@@ -131,11 +128,14 @@ const Chat = props => {
         </div>
     );
 };
-
+Chat.propTypes = {
+    fetchActiveUsers: PropTypes.func,
+    setup: PropTypes.shape({
+        isMainChatOpen: PropTypes.bool,
+    }),
+    activeUsers: PropTypes.arrayOf(PropTypes.object),
+};
 const mapStateToProps = state => {
     return state;
 };
-export default connect(
-    mapStateToProps,
-    { fetchActiveUsers }
-)(Chat);
+export default connect(mapStateToProps, { fetchActiveUsers })(Chat);

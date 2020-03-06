@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Form, Field } from 'react-final-form';
 
-import renderInput from './forms/renderInput';
-import { required, validEmail } from './forms/validate';
+import renderInput from 'components/forms/renderInput';
+import { required, validEmail } from 'components/forms/validate';
 
 import logo from '../img/neur.svg';
 
@@ -32,7 +32,7 @@ const SignIn = props => {
                                     subscription={{
                                         value: true,
                                         error: true,
-                                        touched: true
+                                        touched: true,
                                     }}
                                 >
                                     {renderInput}
@@ -41,14 +41,12 @@ const SignIn = props => {
                                     name="password"
                                     label="Password"
                                     placeholder="Enter your password"
-                                    validate={value =>
-                                        required(value, 'password')
-                                    }
+                                    validate={value => required(value, 'password')}
                                     customType="password"
                                     subscription={{
                                         value: true,
                                         error: true,
-                                        touched: true
+                                        touched: true,
                                     }}
                                 >
                                     {renderInput}

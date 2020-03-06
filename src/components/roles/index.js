@@ -3,8 +3,8 @@ import classNames from 'classnames';
 
 import { FaPlus } from 'react-icons/fa';
 import axios from 'axios';
-import Spinner from '../common/Spinner';
-import Navigation from '../sidebar/Links';
+import Spinner from 'components/common/Spinner';
+import Navigation from 'components/sidebar/Links';
 
 import Item from './Item';
 import Edit from './Edit';
