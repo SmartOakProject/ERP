@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ERP-Frontend/static/css/main.6bfcc6ed.chunk.css",
-    "main.js": "/ERP-Frontend/static/js/main.09363c45.chunk.js",
-    "main.js.map": "/ERP-Frontend/static/js/main.09363c45.chunk.js.map",
+    "main.js": "/ERP-Frontend/static/js/main.280970c0.chunk.js",
+    "main.js.map": "/ERP-Frontend/static/js/main.280970c0.chunk.js.map",
     "runtime~main.js": "/ERP-Frontend/static/js/runtime~main.322e47e3.js",
     "runtime~main.js.map": "/ERP-Frontend/static/js/runtime~main.322e47e3.js.map",
     "static/css/2.1fcac917.chunk.css": "/ERP-Frontend/static/css/2.1fcac917.chunk.css",
     "static/js/2.49fbf8b9.chunk.js": "/ERP-Frontend/static/js/2.49fbf8b9.chunk.js",
     "static/js/2.49fbf8b9.chunk.js.map": "/ERP-Frontend/static/js/2.49fbf8b9.chunk.js.map",
     "index.html": "/ERP-Frontend/index.html",
-    "precache-manifest.d3839133555a59322d5316a4353a8fc6.js": "/ERP-Frontend/precache-manifest.d3839133555a59322d5316a4353a8fc6.js",
+    "precache-manifest.f3829ea7de6efe5da6343a09a175a8dc.js": "/ERP-Frontend/precache-manifest.f3829ea7de6efe5da6343a09a175a8dc.js",
     "service-worker.js": "/ERP-Frontend/service-worker.js",
     "static/css/2.1fcac917.chunk.css.map": "/ERP-Frontend/static/css/2.1fcac917.chunk.css.map",
     "static/css/main.6bfcc6ed.chunk.css.map": "/ERP-Frontend/static/css/main.6bfcc6ed.chunk.css.map",
