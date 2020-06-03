@@ -28,7 +28,7 @@ const FastChat = ({ user, isOpen, closeFastChat }) => {
                     <img src="https://via.placeholder.com/500x500" alt="" />
                 </div>
                 <div className="chat-msg-name">
-                    <Link to={`/head/profile/${user.id}`}>
+                    <Link to={`/profile/${user.id}`}>
                         <h6>{user.name}</h6>
                     </Link>
                 </div>
