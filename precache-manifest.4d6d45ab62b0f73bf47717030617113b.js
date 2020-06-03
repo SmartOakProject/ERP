@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "52f2c5204c334c8b2488c97f89d98797",
+    "revision": "8549d9ca5f6c020a94d5cd97614484f5",
     "url": "/ERP-Frontend/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ERP-Frontend/static/css/2.1fcac917.chunk.css"
   },
   {
-    "revision": "4c0e2ec4055d5bccbe2f",
+    "revision": "337bb6a2b645a39b9941",
     "url": "/ERP-Frontend/static/css/main.6bfcc6ed.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ERP-Frontend/static/js/2.49fbf8b9.chunk.js"
   },
   {
-    "revision": "4c0e2ec4055d5bccbe2f",
-    "url": "/ERP-Frontend/static/js/main.280970c0.chunk.js"
+    "revision": "337bb6a2b645a39b9941",
+    "url": "/ERP-Frontend/static/js/main.f0c2b0c9.chunk.js"
   },
   {
     "revision": "36d112c1d634bb267634",
