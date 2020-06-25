@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/ERP-Frontend/static/css/main.6bfcc6ed.chunk.css",
-    "main.js": "/ERP-Frontend/static/js/main.f0c2b0c9.chunk.js",
-    "main.js.map": "/ERP-Frontend/static/js/main.f0c2b0c9.chunk.js.map",
-    "runtime~main.js": "/ERP-Frontend/static/js/runtime~main.322e47e3.js",
-    "runtime~main.js.map": "/ERP-Frontend/static/js/runtime~main.322e47e3.js.map",
-    "static/css/2.1fcac917.chunk.css": "/ERP-Frontend/static/css/2.1fcac917.chunk.css",
-    "static/js/2.49fbf8b9.chunk.js": "/ERP-Frontend/static/js/2.49fbf8b9.chunk.js",
-    "static/js/2.49fbf8b9.chunk.js.map": "/ERP-Frontend/static/js/2.49fbf8b9.chunk.js.map",
-    "index.html": "/ERP-Frontend/index.html",
-    "precache-manifest.4d6d45ab62b0f73bf47717030617113b.js": "/ERP-Frontend/precache-manifest.4d6d45ab62b0f73bf47717030617113b.js",
-    "service-worker.js": "/ERP-Frontend/service-worker.js",
-    "static/css/2.1fcac917.chunk.css.map": "/ERP-Frontend/static/css/2.1fcac917.chunk.css.map",
-    "static/css/main.6bfcc6ed.chunk.css.map": "/ERP-Frontend/static/css/main.6bfcc6ed.chunk.css.map",
-    "static/media/neur.svg": "/ERP-Frontend/static/media/neur.f9397590.svg",
-    "static/media/user-group.png": "/ERP-Frontend/static/media/user-group.70cede06.png"
+    "main.css": "/ERP/static/css/main.6bfcc6ed.chunk.css",
+    "main.js": "/ERP/static/js/main.29decb45.chunk.js",
+    "main.js.map": "/ERP/static/js/main.29decb45.chunk.js.map",
+    "runtime~main.js": "/ERP/static/js/runtime~main.ce645af1.js",
+    "runtime~main.js.map": "/ERP/static/js/runtime~main.ce645af1.js.map",
+    "static/css/2.1fcac917.chunk.css": "/ERP/static/css/2.1fcac917.chunk.css",
+    "static/js/2.994ca854.chunk.js": "/ERP/static/js/2.994ca854.chunk.js",
+    "static/js/2.994ca854.chunk.js.map": "/ERP/static/js/2.994ca854.chunk.js.map",
+    "index.html": "/ERP/index.html",
+    "precache-manifest.adba9cd3de0071445f48a0ebe8f81b12.js": "/ERP/precache-manifest.adba9cd3de0071445f48a0ebe8f81b12.js",
+    "service-worker.js": "/ERP/service-worker.js",
+    "static/css/2.1fcac917.chunk.css.map": "/ERP/static/css/2.1fcac917.chunk.css.map",
+    "static/css/main.6bfcc6ed.chunk.css.map": "/ERP/static/css/main.6bfcc6ed.chunk.css.map",
+    "static/media/neur.svg": "/ERP/static/media/neur.f9397590.svg",
+    "static/media/user-group.png": "/ERP/static/media/user-group.70cede06.png"
   }
 }
